@@ -19,29 +19,31 @@
 
     {!! Theme::header() !!}
 
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/jquery.bxslider.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/magnific-popup.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/owl.carousel.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/owl.theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/jquery.bxslider.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/magnific-popup.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.carousel.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.theme.css" media="screen">
 
     <meta name="wot-verification" content="fe3132ad710d8e69ea21"/>
 
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/ekko-lightbox.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/ticker-style.css"/>
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post/css/style2.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/ekko-lightbox.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/ticker-style.css"/>
+    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/style2.css" media="screen">
     <link rel="stylesheet" type="text/css"
-          href="/themes/nedaa-post/css/nedaa-style.css?v=<?php $date = new \DateTime('now');
+          href="/themes/nedaa-post-new/css/nedaa-style.css?v=<?php $date = new \DateTime('now');
           echo $date->format('d.G.i'); ?>" media="screen">
-
+    <link rel="stylesheet" type="text/css"
+          href="/themes/nedaa-post-new/css/new-style.css?v=<?php $date = new \DateTime('now');
+          echo $date->format('d.G.i'); ?>" media="screen">
 
     @yield('post-tr')
 
 
     @if (class_exists('Language', false) && app()->getLocale()=='en')
-        <link rel="stylesheet" href="/themes/nedaa-post/css/en-style.css?v=<?php echo rand(1, 999) ?>">
+        <link rel="stylesheet" href="/themes/nedaa-post-new/css/en-style.css?v=<?php echo rand(1, 999) ?>">
     @endif
-    <link rel="icon" type="image/png" sizes="16x16" href="/themes/nedaa-post/upload/ms-icon-310x310.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/themes/nedaa-post-new/upload/ms-icon-310x310.png">
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -56,58 +58,18 @@
         gtag('config', 'UA-170276153-1');
     </script>
 
-    <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script> -->
-    <!-- <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-            OneSignal.init({
-                appId: "5cd96214-1a90-49cb-bd89-41a31b09746a",
-                notifyButton: {
-                    enable: true,
-                },
-                subdomainName: "nedaa-post",
-                promptOptions: {
-                    slidedown: {
-                        prompts: [
-                            {
-                                type: "push",
-                                autoPrompt: true,
-                                text: {
-                                    actionMessage: "We'd like to send you emails for the latest Aggie news and updates.",
-                                    acceptButton: "Sign up",
-                                    cancelButton: "Cancel",
-                                },
-                                delay: {
-                                    pageViews: 1,
-                                    timeDelay: 5
-                                },
-                            }
-                        ]
-                    }
-                }
-            });
 
-
-        });
-
-
-    </script> -->
 </head>
 
 <?php
-//foreach (\Botble\Blog\Models\Post::getPostsForOthersLang(2601) as $postR) {
-//    $url = \Botble\Blog\Models\Post::find($postR->reference_id)->url;
-//    echo $url;
-//
-//}
-//
-setLocale(LC_TIME, $locale);
-//?>
+
+
+?>
 <body @if (class_exists('Language', false) && Language::getCurrentLocaleRTL()) dir="rtl"
       @endif class=" header2 lang-{{ app()->getLocale() }}">
 
 <!-- Container -->
-<div id="container">
+<div id="container" class="new-version">
     <header class="clearfix ">
         <!-- Bootstrap navbar -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -118,7 +80,7 @@ setLocale(LC_TIME, $locale);
                     <div class="row">
                         <div class="col-md-9">
                             <ul class="top-line-list">
-                                <li><span class="time-now"><a>--{{arabicDate(date())}}</a></span></li>
+                                <li><span class="time-now"><a>{{arabicDate(date(" M j, Y"))}}</a></span></li>
                                 <li><span class="time-now"><a
                                                 href="/<?=app()->getLocale()?>/contact-us">{{__('Contact Us')}}</a></span>
                                 </li>
@@ -149,11 +111,15 @@ setLocale(LC_TIME, $locale);
             <!-- End Top line -->
 
             <!-- Logo & advertisement -->
+
             <div class="logo-advertisement ">
                 <div class="container">
 
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
+                        <a class="navbar-brand desktop" href="/"><img width="130"
+                                                                      src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}"
+                                                                      alt="Nedaa Post logo"></a>
                         <div class="search-button mobile-visible">
                             <button id="search"><i class="fa fa-search"></i></button>
                             <div class="search-popup">
@@ -182,6 +148,15 @@ setLocale(LC_TIME, $locale);
                                  alt="Nedaa Post logo"></a>
                     </div>
                     <div class="advertisement">
+                        <div class="search-form">
+                            <form accept-charset="UTF-8" action="{{ route('public.search') }}" method="GET">
+                                <div class="form">
+                                    <button type="submit" id="search-submit"><i class="fa fa-search"></i>
+                                    </button>
+                                    <input type="text" id="search" name="q" placeholder="{{__('Search Word')}}">
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                 </div>
@@ -193,9 +168,7 @@ setLocale(LC_TIME, $locale);
                 <div class="container">
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <a class="navbar-brand desktop" href="/"><img width="90"
-                                                                      src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}"
-                                                                      alt="Nedaa Post logo"></a>
+
 
                         {!!
                         Menu::renderMenuLocation('main-menu', [
