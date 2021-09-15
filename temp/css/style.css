@@ -1,0 +1,31 @@
+body.ar-lang{
+    font-family: 'Tajawal', sans-serif;
+    text-align: right;
+
+}
+.ar-lang h1, .ar-lang h2,.ar-lang h3,.ar-lang h4,.ar-lang h5,.ar-lang h6{
+    font-family: 'Tajawal', sans-serif;
+    text-align: right;
+    color:#006f91;
+}
+.ar-lang .about-area .story-content p {
+    line-height: 1.65em;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: right;
+}
+.ar-lang .about-area .story-content h2 {
+    font-size: 46px;
+    line-height: 1.25em;
+    font-weight: 100;
+    font-weight: bold;
+}
+span{
+    color:#fbb216;
+}
+.ar-lang #myForm{
+    direction: rtl;
+}
+.single-contact h2{
+    text-align: center;
+}

@@ -1,0 +1,8 @@
+{
+    "name": "NedaaPost",
+    "namespace": "Theme\\NedaaPost\\",
+    "description": "This is a NedaaPost theme",
+    "author": "Abdulhamid Ta",
+    "version": "1.0",
+    "required_plugins": []
+}

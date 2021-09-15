@@ -1,0 +1,9 @@
+{
+    "name": "AutoReloadPosts",
+    "namespace": "Botble\\AutoReloadPosts\\",
+    "provider": "Botble\\AutoReloadPosts\\Providers\\AutoReloadPostsServiceProvider",
+    "author": "N/A",
+    "url": "N/A",
+    "version": "1.0",
+    "description": "The description for module auto_reload_posts"
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Subscribe",
+    "namespace": "Botble\\Subscribe\\",
+    "provider": "Botble\\Subscribe\\Providers\\SubscribeServiceProvider",
+    "author": "N/A",
+    "url": "N/A",
+    "version": "1.0",
+    "description": "The description for module subscribe"
+}
