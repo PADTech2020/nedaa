@@ -103,23 +103,26 @@ $meta->addProperty('site-name',  'نداء بوست' );
                         </div>
 
                         <div class="row">
-                            <div class="dark-list-posts col-md-12 col-sm-12">
+                            <div class=" col-md-12 col-sm-12">
                                 <br>
                                 @foreach($sy_categories as $category)
 
                                     <ul class="list-posts row">
                                         @foreach($posts = \Botble\Blog\Models\Post::getPostsByCategory($category->id, 2) as $post)
                                             <li class="col-md-6">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb', false, RvMedia::getDefaultImage()) }}"
-                                                     alt="{{$post->name}}">
-                                                <div class="post-content">
-                                                    <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
-                                                    <ul class="post-tags">
-                                                        <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                        </li>
-                                                    </ul>
+                                                <div class="w-box">
+                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'thumb', false, RvMedia::getDefaultImage()) }}"
+                                                         alt="{{$post->name}}">
+                                                    <div class="post-content">
+                                                        <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
+                                                        <ul class="post-tags">
+                                                            <li>
+                                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
+
                                             </li>
                                         @endforeach
                                     </ul>

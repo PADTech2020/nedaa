@@ -64,6 +64,9 @@ add_shortcode('featured-posts', 'Featured posts', 'Featured posts', function () 
 add_shortcode('slider-posts', 'Slider posts', 'Slider posts', function () {
     return Theme::partial('short-codes.slider-posts');
 });
+    add_shortcode('slider-posts-2', 'Slider posts 2', 'Slider posts 2', function () {
+    return Theme::partial('short-codes.slider-posts-2');
+});
 add_shortcode('sport', 'Slider sport', 'Slider sport', function () {
     return Theme::partial('short-codes.sport');
 });
@@ -434,6 +437,8 @@ add_action('init', function () {
 }, 124);
 
 RvMedia::addSize('slider_big', 580, 390)->addSize('slider_big', 580, 390);
-RvMedia::addSize('post_main', 770, 380)->addSize('post_main', 770, 380);
+RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 380);
+RvMedia::addSize('post_main', 650, 366)->addSize('post_main', 650, 366);
+RvMedia::addSize('item_post', 312, 176)->addSize('item_post', 312, 176);
 RvMedia::addSize('under_post', 270, 200)->addSize('under_post', 270, 200);
 RvMedia::addSize('side_bar', 80, 70)->addSize('side_bar', 80, 70);
