@@ -1138,7 +1138,7 @@ $meta->addProperty('site-name',  'نداء بوست' );
 </section>
 
 
-<section class="block-wrapper non-sidebar">
+<section class="block-wrapper non-sidebar sky-news">
     <div class="container">
 
         <!-- block content -->
@@ -1161,11 +1161,9 @@ $meta->addProperty('site-name',  'نداء بوست' );
                                         <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
                                     </div>
                                     <div class="post-content">
-                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <h2><a href="single-post.html">{{ $post->name }}</a></h2>
                                         <ul class="post-tags">
-                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1176,6 +1174,38 @@ $meta->addProperty('site-name',  'نداء بوست' );
                         
                     </div>
 
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(86)}}</span></h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach($cinema as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                    alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
+                </div>    
+
+                <div class="row">
                     <div class="col-md-9">
 
                         <div class="title-section">
@@ -1193,11 +1223,9 @@ $meta->addProperty('site-name',  'نداء بوست' );
                                         </div>
                                     </div>
                                     <div class="post-content">
-                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <h2><a href="single-post.html">{{ $post->name }}</a></h2>
                                         <ul class="post-tags">
-                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1206,6 +1234,37 @@ $meta->addProperty('site-name',  'نداء بوست' );
                         </div>
 
                     </div>
+
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(86)}}</span></h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach($cinema as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                    alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
+                </div>
 
                 </div>
             </div>
