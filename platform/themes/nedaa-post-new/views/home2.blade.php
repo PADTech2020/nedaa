@@ -1136,3 +1136,83 @@ $meta->addProperty('site-name',  'نداء بوست' );
         </div>
     </div>
 </section>
+
+
+<section class="block-wrapper non-sidebar">
+    <div class="container">
+
+        <!-- block content -->
+        <div class="block-content non-sidebar">
+
+            <!-- grid-box -->
+            <div class="grid-box">
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div class="title-section">
+                            <h1><span>Latest Deals</span></h1>
+                        </div>
+
+                        <div class="row">
+                            @foreach($cinema as $post)
+                            <div class="col-md-4">
+                                <div class="news-post standard-post">
+                                    <div class="post-gallery">
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
+                                    </div>
+                                    <div class="post-content">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-md-9">
+
+                        <div class="title-section">
+                            <h1><span>Latest Reviews</span></h1>
+                        </div>
+
+                        <div class="row">
+                            @foreach($cinema as $post)
+                            <div class="col-md-4">
+                                <div class="news-post standard-post">
+                                    <div class="post-gallery">
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
+                                        <div class="rate-level">
+                                            <p><span>5.0</span> Mediocre</p>
+                                        </div>
+                                    </div>
+                                    <div class="post-content">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- End grid-box -->
+
+        </div>
+        <!-- End block content -->
+
+    </div>
+</section>

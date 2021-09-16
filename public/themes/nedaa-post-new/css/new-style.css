@@ -1,0 +1,119 @@
+.new-version .top-line {
+    width: 100%;
+    background: #232323;
+    padding: 0 20px;
+    min-height: 40px;
+}
+
+.header2 .navbar-default {
+    background: url(/themes/nedaa-post-new/images/header_bg_v2.jpg);
+    border: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-line ul.top-line-list li a, .top-line ul.top-line-list li span{
+    padding: 8px 0 8px 20px;
+    padding-left: 5px;
+    text-align: right;
+    color: #fff;
+    font-size: 1em;
+}
+.navbar-brand.desktop{
+    padding: 15px;
+}
+.search-form {
+    display: block;
+    position: relative;
+    right: auto;
+    left: 0;
+    padding-top: 0px;
+
+    background-color: transparent;
+    width: 240px;
+    float: left;
+    margin-top: 40px;
+}
+.search-form .form input {
+    -webkit-appearance: none;
+    border: none;
+    width: 245px;
+    outline: none;
+    padding: 5px 35px 5px 7px;
+    font-size: 1rem;
+    box-shadow: 0 1.5px 3px 2px rgb(0 35 64 / 10%);
+    margin: 0;
+    height: 100%;
+}
+#search-submit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    width: 35px;
+    padding-right: 3px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: 0px;
+    background: transparent;
+}
+.navbar-nav > li > a {
+    color: #000000 !important;
+    font-size: 14px;
+    font-family: Cairo, sans-serif;
+    font-weight: 800;
+}
+.navbar-nav > li > a:before {
+    height: 0px;}
+.header_links {
+    /* width: 150px; */
+    float: left;
+}
+.header_links ul{
+    padding: 0px;
+    margin-top: 10px;
+}
+li.header_links_item {
+    display: inline-block;
+    width: 80px;
+    padding: 10px;
+    text-align: center;
+}
+li.header_links_item.latest {
+    background-color: #063e7b;
+    color: #fff;
+}
+li.header_links_item.trends{
+
+    background-color: #ac0000;
+    color: #fff;
+}
+.new-version {
+    background-color: #f5f8f8;
+}
+.heading-news2 {
+    padding: 10px 0 10px;
+    background: transparent;
+    background-image: none;
+}
+.ticker-news{
+    background: #ffffff;
+}
+.image-post .hover-box .inner-hover h2 {
+
+    line-height: 22px;
+    font-size: 18px;
+}
+.top-line ul.social-icons {
+
+    margin-top: 12px;
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 96%;
+    }
+}
