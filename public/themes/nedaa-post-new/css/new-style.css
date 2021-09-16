@@ -281,6 +281,9 @@ ul.list-posts > li .post-content h2 a:hover {
     color: inherit;
     background: #fff;
 }
+.standard-post .post-content {
+    padding-top: 10px;
+}
 a.title {
     display: block;
     color: #dddddd;
