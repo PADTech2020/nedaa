@@ -331,3 +331,33 @@ a.title:hover {
         width: 96%;
     }
 }
+
+.sidebar .post-widget .posts-line .news-post {
+    width: 33.3333%;
+    float: left;
+    padding: 0 2px;
+}
+
+
+
+/* h1 span:before {
+    content: " ";
+    top: 0;
+    right: 0;
+    display: block;
+    position: absolute;
+    background-clip: content-box;
+    width: 6px;
+    height: 35px;
+    background: #ac0000;
+}
+
+h1 span::after {
+    content: " ";
+    width: 32px;
+    background-image: url(https://asset1.skynewsarabia.com/asset/1643183703/B4EE20F9E552BC4C3D18682A1AA43E3D/assets/img/svg-icons/content_go_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 13px 15px;
+    margin-right: 10px;
+} */

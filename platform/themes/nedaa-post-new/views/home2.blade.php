@@ -1014,6 +1014,9 @@ $meta->addProperty('site-name', 'نداء بوست');
                             </ul>
                         </div>
                     </div>
+
+
+
                 </div>
                 <!-- End sidebar -->
             </div>
@@ -1185,7 +1188,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                         </div>
 
                         <div class="row">
-                            @foreach($cinema as $post)
+                            @foreach(get_featured_posts(6) as $post)
                                 <div class="col-md-4">
                                     <div class="news-post standard-post">
                                         <div class="post-gallery">
@@ -1218,7 +1221,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                         </h1>
                                     </div>
                                     <ul class="list-posts">
-                                        @foreach($cinema as $post)
+                                        @foreach(get_featured_posts(4) as $post)
                                             <li>
                                                 <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
                                                      alt="{{$post->name}}">
@@ -1248,7 +1251,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                         </div>
 
                         <div class="row">
-                            @foreach($cinema as $post)
+                            @foreach(get_recent_posts(6) as $post)
                                 <div class="col-md-4">
                                     <div class="news-post standard-post">
                                         <div class="post-gallery">
@@ -1272,40 +1275,40 @@ $meta->addProperty('site-name', 'نداء بوست');
 
                     </div>
 
-                    <div class="col-md-3">
-                        <!-- sidebar -->
-                        <div class="sidebar">
-                            <div class="widget tags-widget">
-                                <div>
-                                    <div class="title-section">
-                                        <h1>
-                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(86)}}</span>
-                                        </h1>
-                                    </div>
-                                    <ul class="list-posts">
-                                        @foreach($cinema as $post)
-                                            <li>
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                     alt="{{$post->name}}">
-                                                <div class="post-content">
-                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                                    <ul class="post-tags">
-                                                        <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End sidebar -->
-                    </div>
+                    <div class="col-md-3 col-sm-0">
+
+						<!-- sidebar -->
+						<div class="sidebar small-sidebar">
+
+							<div class="widget review-widget">
+								<h1>Top Reviews</h1>
+								<ul class="review-posts-list">
+                                    @foreach(get_featured_posts(2) as $post)
+                                        <li>
+                                            <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                            <span class="date"><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}</span>
+                                            <span class="post-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </li>
+                                    @endforeach
+
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+
                 </div>
 
             </div>
+            
         </div>
         <!-- End grid-box -->
 
@@ -1314,3 +1317,248 @@ $meta->addProperty('site-name', 'نداء بوست');
 
     </div>
 </section>
+
+<section class="block-wrapper">
+    <div class="container">
+        <!-- block content -->
+        <div class="block-content">
+
+            <!-- grid-box -->
+            <div class="grid-box">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-4">
+
+                            <div class="title-section">
+                                <h1><span>Latest Deals</span></h1>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @foreach (get_popular_posts(1) as $post)
+                                    <div class="news-post standard-post">
+                                        <div class="post-gallery">
+                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
+                                        </div>
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+
+                            <ul class="list-posts">
+                                @foreach (get_popular_posts(3) as $post)
+                                <li>
+                                    <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                    <div class="post-content">
+                                        <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                    </div>
+                                </li>
+                                @endforeach
+
+                            </ul>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="title-section">
+                                <h1><span>Latest Reviews</span></h1>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                @foreach (get_recent_posts(1) as $post)
+
+                                    <div class="news-post standard-post">
+                                        <div class="post-gallery">
+                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
+                                            <div class="rate-level">
+                                                <p><span>5.0</span> Mediocre</p>
+                                            </div>
+                                        </div>
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            <ul class="list-posts">
+                            @foreach (get_recent_posts(3) as $post)
+
+                                <li>
+                                    <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                    <div class="post-content">
+                                        <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                    </div>
+                                </li>
+                                @endforeach
+
+                            </ul>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="title-section">
+                                <h1><span>Latest Reviews</span></h1>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                @foreach (get_featured_posts(1) as $post)
+
+                                    <div class="news-post standard-post">
+                                        <div class="post-gallery">
+                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}" alt="">
+                                            <div class="rate-level">
+                                                <p><span>5.0</span> Mediocre</p>
+                                            </div>
+                                        </div>
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            <ul class="list-posts">
+                            @foreach (get_featured_posts(3) as $post)
+
+                                <li>
+                                    <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                    <div class="post-content">
+                                        <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                    </div>
+                                </li>
+                                @endforeach
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget recent-comments-widget">
+								<div class="title-section">
+									<h1><span>Recent Comments</span></h1>
+								</div>
+								<div class="owl-wrapper">
+									<div class="owl-carousel" data-num="1">
+										<div class="item">
+											<ul class="comment-list">
+                                            @foreach (get_featured_posts(3) as $post)
+												<li>
+													<img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+													<div class="comment-content">
+														<p class="main-message">{{$post->name}}</p>
+														<p>{{$post->name}}</p>
+														<span><i class="fa fa-user"></i>by John Doe</span>
+													</div>
+												</li>
+                                            @endforeach
+											</ul>
+										</div>
+										<div class="item">
+											<ul class="comment-list">
+                                            @foreach (get_featured_posts(3) as $post)
+												<li>
+													<img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+													<div class="comment-content">
+                                                        <p class="main-message">{{$post->name}}</p>
+														<p>{{$post->name}}</p>
+														<span><i class="fa fa-user"></i>by John Doe</span>
+													</div>
+												</li>
+                                            @endforeach
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
+
+                </div>
+            </div>
+            <!-- End grid-box -->
+
+        </div>
+        <!-- End block content -->
+    </div>
+</section>
+
+<!-- block-wrapper-section
+================================================== -->
+<section class="block-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <!-- block content -->
+                <div class="block-content">
+
+                    <!-- brid box -->
+                    <div class="grid-box">
+
+                        <div class="title-section">
+                            <h1><span>Today's Featured</span></h1>
+                        </div>
+
+                        <div class="row">
+                            @foreach (get_featured_posts(2) as $post)
+                            <div class="col-md-6">
+                                <div class="news-post image-post2">
+                                    <div class="post-gallery">
+                                        <img src="{{ RvMedia::getImageUrl($post->image,'slider_big') }}" alt="">
+                                        <div class="hover-box">
+                                            <div class="inner-hover">
+                                                <a class="category-post" href="">Beach</a>
+                                                <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            @foreach (get_featured_posts(3) as $post)
+                            <div class="col-md-4">
+
+                                <div class="news-post image-post2">
+                                    <div class="post-gallery">
+                                        <img src="{{ RvMedia::getImageUrl($post->image,'slider_big') }}" alt="">
+                                        <div class="hover-box">
+                                            <div class="inner-hover">
+                                                <a class="category-post" href="">Beach</a>
+                                                <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+                    <!-- End grid box -->
+                </div>
+                <!-- End block content -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End block-wrapper-section -->
