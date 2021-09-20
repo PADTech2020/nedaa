@@ -217,7 +217,7 @@ a {
     transform: translateZ(0);
 }
 
-.news-headlines li:hover, a:hover {
+.news-headlines li:hover a:hover {
     cursor: pointer;
     background: #333333;
     color: #ffffff;
@@ -555,14 +555,108 @@ figure.snip1253.hover img {
     width: 6px;
     height: 35px;
     background: #ac0000;
-}
+}*/
 
 h1 span::after {
     content: " ";
     width: 32px;
-    background-image: url(https://asset1.skynewsarabia.com/asset/1643183703/B4EE20F9E552BC4C3D18682A1AA43E3D/assets/img/svg-icons/content_go_arrow.svg);
+    background-image: url("https://nedaa-post.com//storage/content_go_arrow.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 13px 15px;
     margin-right: 10px;
-} */
+} 
+
+.block-wrapper{
+    background-color: #f5f8f8;
+}
+
+.sidebar .widget {
+    margin-bottom: 40px;
+    background-color: #f5f8f8;
+}
+
+ul.list-posts > li {
+    background-color: #fff;
+}
+
+.title-section h1 {
+    font-size: 22px;
+}
+
+.sidebar .recent-comments-widget ul.comment-list li img {
+    float: right;
+}
+
+.sidebar .recent-comments-widget ul.comment-list li .comment-content {
+    margin-right: 90px;
+}
+
+.sidebar .recent-comments-widget ul.comment-list li .comment-content {
+    margin-left: 0px;
+}
+
+.sidebar .recent-comments-widget ul.comment-list li .comment-content p.main-message {
+    text-align: right;
+}
+
+.sidebar .recent-comments-widget ul.comment-list li .comment-content p {
+    text-align: right;
+}
+
+.standard-post .post-gallery div.rate-level {
+    right: 10px;
+    bottom: 10px;
+    left: 0px;
+}
+
+.grid-box ul.list-posts {
+    margin-top: 20px;
+}
+
+.post-content, .lang-ar .post-content h2, .lang-ar .post-content p {
+    padding-top: 10px;
+}
+
+ul.list-posts > li {
+    padding-bottom: 0px;
+}
+
+
+.standard-post:hover:after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    height: 5px;
+    width: 100%;
+    border-bottom: 5px solid #ac0000;
+    z-index: 1;
+}
+
+.news-post h3{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.title-section {
+    margin-bottom: 0px;
+}
+
+.title-section h1 span {
+    border-bottom: 4px solid #9d2225;
+}
+
+.standard-post .post-content {
+    padding: 10px;
+}
+
+ul.post-tags li {
+    color: #000;
+    font-size: 15px;
+}
+
+ul.list-posts > li .post-content h2 {
+    font-size: 15px;
+}
