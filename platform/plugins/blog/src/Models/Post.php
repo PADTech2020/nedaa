@@ -89,6 +89,7 @@ class Post extends BaseModel
         'published_at',
         'caption',
         'short_link',
+        
     ];
 
     /**

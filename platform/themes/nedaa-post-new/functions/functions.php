@@ -435,7 +435,11 @@ theme_option()
 add_action('init', function () {
     config(['filesystems.disks.public.root' => public_path('storage')]);
 }, 124);
-
+function GetYoutubeID($url){
+    parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+    if(isset($my_array_of_vars['v']))
+        return $my_array_of_vars['v'];
+}
 RvMedia::addSize('slider_big', 580, 390)->addSize('slider_big', 580, 390);
 RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 380);
 RvMedia::addSize('post_main', 650, 366)->addSize('post_main', 650, 366);

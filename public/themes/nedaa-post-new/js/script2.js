@@ -1,6 +1,8 @@
 $(document).ready(function (e) {
     "use strict";
 
+   
+
     var popup = document.getElementById('popup-wrapper');
     var popup2 = document.getElementById('popup-wrapper-2');
     // popup2.classList.add('show');

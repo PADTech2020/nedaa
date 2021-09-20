@@ -1,5 +1,27 @@
 $(function () {
     "use strict";
+    $('.post-small-youtube').click(function () {
+        var YID=$(this).attr('data-yid');
+        $('#main-vid').attr('src','https://www.youtube.com/embed/'+YID)
+
+    });
+    $('.sports .post-small-sport').click(function () {
+
+        $('#dark-main-img').fadeOut( "slow", function() {
+            // Animation complete
+        });
+        var url=$(this).attr('data-url');
+        var title=$(this).attr('data-title');
+        var desc=$(this).attr('data-desc');
+        $('.sports #dark-main-img').fadeIn( "slow", function() {
+            // Animation complete
+        });
+        $('.sports #dark-main-img img').attr('src',url)
+        $('.sports #dark-main-img h2').text(title);
+        $('.sports #dark-main-img p').text(desc);
+
+    });
+
 
     var          hl,
         newsList = $('.news-headlines'),

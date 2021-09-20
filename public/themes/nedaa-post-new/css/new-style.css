@@ -531,40 +531,149 @@ figure.snip1253.hover img {
 .uk-grid.uk-grid-medium {
     position: relative;
 }
+
+/*New vid*/
+.o-video {
+    width: 100%;
+    height: 0;
+    position: relative;
+    padding-top: 56.25%; /* 9 / 16 * 100 */
+}
+.o-video > iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+.post-small-youtube{
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+.post-small-youtube h4.title{
+    color:#ffffff!important;
+}
+.new-dark-style{
+    background-color: #232323!important;
+    padding-top:40px;
+    padding-bottom:40px;
+    margin-bottom: 30px;
+}
+.post-small-youtube{
+    background-color: #2d2d2d;
+}
+.post-small-youtube .content{
+    color:#ffffff;
+}
+.new-dark-style .title-section{
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+.new-dark-style .title-section h1{
+    color:#ffffff;
+}
+.post-small-youtube .content span {
+    background: #9d2225;
+    padding: 2px 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.post-small-sport .sport-small-item{
+ background-color: #2d2d2d;
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.post-dark #dark-main-img img{
+    width: 100%;
+}
+.post-small-sport .sport-small-item .content{
+    color:#ffffff;
+    padding: 8px;
+}
+.sport-small-item span{
+    position: absolute;
+    display: inline-block;
+    padding: 5px;
+    color: #ffffff;
+    right: 0;
+    background: #032c67;
+    top: 0;
+}
+#dark-main-img .content{
+    background-color: #2d2d2d;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    padding: 10px;
+}
+#dark-main-img .content h2 ,#dark-main-img .content p,#dark-main-img .content h3,#dark-main-img .content h4{
+    color: #ffffff;
+}
 @media (min-width: 1200px) {
-    .container {
-        width: 96%;
-    }
+.container {
+    width: 96%;
+}
 }
 
 .sidebar .post-widget .posts-line .news-post {
-    width: 33.3333%;
-    float: left;
-    padding: 0 2px;
+width: 33.3333%;
+float: left;
+padding: 0 2px;
 }
+#dark-main-img .content.border{
+    border-bottom: 4px solid #9d2225;
+}
+.lifestyle .content p{
+    padding-right: 40px;
+    min-height: 60px;
+}
+.lifestyle .content{
+    position: relative;
 
-
-
-/* h1 span:before {
-    content: " ";
-    top: 0;
-    right: 0;
-    display: block;
+}
+.lifestyle .content .date {
+    background-color: #9d2225;
+    top: 15px;
+    color: #fff;
+    left: 8px;
+    min-height: 40px;
+    min-width: 40px;
     position: absolute;
-    background-clip: content-box;
-    width: 6px;
-    height: 35px;
-    background: #ac0000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: absolute;
+    right: 5px;
+    width: 36px;
+}
+/* h1 span:before {
+content: " ";
+top: 0;
+right: 0;
+display: block;
+position: absolute;
+background-clip: content-box;
+width: 6px;
+height: 35px;
+background: #ac0000;
 }*/
 
 h1 span::after {
     content: " ";
     width: 32px;
-    background-image: url("https://nedaa-post.com//storage/content_go_arrow.svg");
+    background-image: url(https://nedaa-post.com//storage/content_go_arrow.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 13px 15px;
     margin-right: 10px;
+    display: inline-block;
+    height: 32px;
+
+    position: absolute;
 } 
 
 .block-wrapper{
