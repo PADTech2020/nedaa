@@ -51,14 +51,25 @@ $(document).ready(function (e) {
     }), e("#short_link_ico2").click(function () {
         0 == o ? (e(".short_link").css("display", "block"), o = 1) : (o = 0, e(".short_link").css("display", "none"))
     });
-    var t = e("#sy-slider").owlCarousel({
+    var t = e("#sy-slider-new").owlCarousel({
         rtl: !0,
         loop: !0,
-        singleItem: !0,
+        // singleItem: !0,
         navigation: !0,
         slideSpeed: 300,
         paginationSpeed: 400,
-        autoPlay: !0
+        autoPlay: !0,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        }
     }), i = e("#top-slider").owlCarousel({
         rtl: !0,
         loop: !0,
