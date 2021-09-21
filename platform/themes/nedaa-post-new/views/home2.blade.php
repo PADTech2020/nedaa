@@ -2,29 +2,30 @@
 
 
 <?php
-$middle_east = [];
 $sy = \Botble\Blog\Models\Post::getAllPostsByCategory(68, 6);
 $sy_categories = \Botble\Blog\Models\Category::getChildren(68);
 
 $international = \Botble\Blog\Models\Post::getAllPostsByCategory(70, 4);
 $middle_east = \Botble\Blog\Models\Post::getAllPostsByCategory(69, 4);
 $files = \Botble\Blog\Models\Post::getAllPostsByCategory(90, 4);
-
+$ra2i = \Botble\Blog\Models\Post::getAllPostsByCategory(73, 5);
 
 $helth = \Botble\Blog\Models\Post::getAllPostsByCategory(82, 4);
 $cinema = \Botble\Blog\Models\Post::getAllPostsByCategory(86, 4);
-
-$discover = \Botble\Blog\Models\Post::getAllPostsByCategory(83, 4);
-$social = \Botble\Blog\Models\Post::getAllPostsByCategory(84, 4);
 $mjtama3 = \Botble\Blog\Models\Post::getAllPostsByCategory(87, 4);
-
 $books = \Botble\Blog\Models\Post::getPostsByCategory(149, 2);
-$dialogues = \Botble\Blog\Models\Post::getPostsByCategory(150, 3);
 $texts = \Botble\Blog\Models\Post::getPostsByCategory(148, 2);
+
+$discover = \Botble\Blog\Models\Post::getAllPostsByCategory(83, 4);// not used
+$social = \Botble\Blog\Models\Post::getAllPostsByCategory(84, 4);// not used
+$dialogues = \Botble\Blog\Models\Post::getPostsByCategory(150, 4);// not used
+$turath = \Botble\Blog\Models\Post::getPostsByCategory(153, 5);// not used
+
 
 
 $sport = \Botble\Blog\Models\Post::getPostsByCategory(75, 4);
-$translate = \Botble\Blog\Models\Post::getAllPostsByCategory(72, 3);
+
+$vid = \Botble\Blog\Models\Post::getPostsByCategory(89, 6);
 
 $lifestyle = \Botble\Blog\Models\Post::getAllPostsByCategory(76, 4);
 
@@ -32,17 +33,11 @@ $economy = \Botble\Blog\Models\Post::getAllPostsByCategory(71, 4);
 $economy = $economy->reverse();
 
 
-
-$ra2i = \Botble\Blog\Models\Post::getAllPostsByCategory(73, 5);
-
-
-
-$art = \Botble\Blog\Models\Post::getAllPostsByCategory(85, 3);
-$investigations = \Botble\Blog\Models\Post::getAllPostsByCategory(152, 3);
-
-
-$vid = \Botble\Blog\Models\Post::getPostsByCategory(89, 6);
-
+$scienceandtechnology = \Botble\Blog\Models\Post::getPostsByCategory(74, 4);
+$art = \Botble\Blog\Models\Post::getPostsByCategory(85, 4);
+$investigations = \Botble\Blog\Models\Post::getPostsByCategory(152, 4);
+$mnoa3 = \Botble\Blog\Models\Post::getPostsByCategory(77, 2);
+$translate = \Botble\Blog\Models\Post::getAllPostsByCategory(72, 2);
 
 $infographic = \Botble\Blog\Models\Post::getPostsByCategory(154, 2);
 
@@ -60,9 +55,9 @@ $meta->addProperty('site-name', 'نداء بوست');
 ?>
 
 
-        <!-- features-today-section
+<!-- features-today-section
 ================================================== -->
-<section class="block-wrapper">
+<section class="block-wrapper" style="display: none;">
     <div class="container">
         <div class="row">
 
@@ -356,15 +351,40 @@ $meta->addProperty('site-name', 'نداء بوست');
                     <div class="col-md-3">
                         <!-- sidebar -->
                         <div class="sidebar">
+                        <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>زوانا يتصفحون الآن</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach(get_featured_posts(2) as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                     alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="widget tags-widget">
                                 <div>
                                     <div class="title-section">
                                         <h1>
-                                            <span>آخر الأخبار</span>
+                                            <span>الأكثر قراءة</span>
                                         </h1>
                                     </div>
                                     <ul class="list-posts">
-                                        @foreach(get_latest_posts(5) as $post)
+                                        @foreach(get_popular_posts(3) as $post)
                                             <li>
                                                 <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
                                                      alt="{{$post->name}}">
@@ -596,7 +616,8 @@ $meta->addProperty('site-name', 'نداء بوست');
         <!-- End block content -->
     </div>
 </section>
-{{--فيديو--}}
+
+<!-- فيديو -->
 <section class="block-wrapper new-dark-style">
     <div class="container">
         <!-- block content -->
@@ -661,51 +682,6 @@ $meta->addProperty('site-name', 'نداء بوست');
         </div>
     </div>
     </div>
-</section>
-<section class="features-today ">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="title-section">
-                    <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(71)}}</span></h1>
-                </div>
-                <div class="features-today-box owl-wrapper">
-                    <div class="" data-num="4">
-                        <div class="uk-section">
-                            <div class="uk-container row">
-
-
-                                @if(count($economy)>0)
-                                    @foreach($economy as $post)
-                                        <div class="uk-grid uk-grid-medium col-md-3">
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
-                                                 alt="{{$post->name}}">
-                                            <div class="uk-width-1-4@m">
-                                                <div class="uk-card uk-card-default uk-card-body uk-background-cover card-hover news-cards">
-                                                    <div class="uk-card-body-small news-text-bck uk-position-bottom"
-                                                         style="box-sizing: border-box;">
-                                                        <p class="uk-light uk-padding-small uk-padding-remove-bottom uk-margin-remove-bottom">
-                                                            <a href="{{ $post->url }}">{{$post->name}}</a></p>
-                                                        <p class="uk-text-small subtitle-text-block uk-light uk-margin-remove-top">{{$post->description}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-                                    @endforeach
-                                @endif
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 </section>
 
 <!-- صحة سينما وتلفزيون مجتمع  -->
@@ -902,7 +878,54 @@ $meta->addProperty('site-name', 'نداء بوست');
     </div>
 </section>
 
-{{--رياضة--}}
+<!-- اقتصاد -->
+<section class="block-wrapper features-today ">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="title-section">
+                    <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(71)}}</span></h1>
+                </div>
+                <div class="features-today-box owl-wrapper">
+                    <div class="" data-num="4">
+                        <div class="uk-section">
+                            <div class="uk-container row">
+
+
+                                @if(count($economy)>0)
+                                    @foreach($economy as $post)
+                                        <div class="uk-grid uk-grid-medium col-md-3">
+                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
+                                                 alt="{{$post->name}}">
+                                            <div class="uk-width-1-4@m">
+                                                <div class="uk-card uk-card-default uk-card-body uk-background-cover card-hover news-cards">
+                                                    <div class="uk-card-body-small news-text-bck uk-position-bottom"
+                                                         style="box-sizing: border-box;">
+                                                        <p class="uk-light uk-padding-small uk-padding-remove-bottom uk-margin-remove-bottom">
+                                                            <a href="{{ $post->url }}">{{$post->name}}</a></p>
+                                                        <p class="uk-text-small subtitle-text-block uk-light uk-margin-remove-top">{{$post->description}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    @endforeach
+                                @endif
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+</section>
+
+<!-- رياضة -->
 <section class="sports block-wrapper new-dark-style">
     <div class="container">
         <!-- block content -->
@@ -969,251 +992,202 @@ $meta->addProperty('site-name', 'نداء بوست');
     </div>
     </div>
 </section>
-<!-- block-wrapper-section
-    ================================================== -->
+
+<!-- علوم وتكنولوجيا ثقافة وفن تحقيقات  -->
 <section class="block-wrapper">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
+        <!-- block content -->
+        <div class="block-content">
 
-                <!-- block content -->
-                <div class="block-content">
-
-                    <!-- carousel box -->
-                    <div class="carousel-box tech owl-wrapper">
-
-                        <div class="title-section">
-                            <h1>
-                                <span class="world">{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(74)}}</span>
-                            </h1>
-                        </div>
-
-                        <div class="owl-carousel" data-num="2">
-                            @if(count($helth)>0)
-                                <div class="item">
-                                    @if(isset($helth[0]))
-                                        <div class="news-post image-post2">
+            <!-- grid-box -->
+            <div class="grid-box">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-4">
+                            <div class="title-section">
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(74)}}</span>
+                                </h1>
+                            </div>
+                            <div class="row">
+                                <a href="{{$scienceandtechnology[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($helth[0]->image, 'under_post') }}"
-                                                     alt="{{$helth[0]->name}}">
-                                                <div class="hover-box">
-                                                    <div class="inner-hover">
-                                                        <h2><a href="{{$helth[0]->url}} ">{{$helth[0]->name}} </a>
-                                                        </h2>
-                                                        <ul class="post-tags">
-                                                            <li>
-                                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($helth[0]->published_at)) }}
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <img src="{{ RvMedia::getImageUrl($scienceandtechnology[0]->image, 'under_post') }}"
+                                                     alt="{{$scienceandtechnology[0]->name}}">
+                                                <div class="rate-level">
+                                                    <h3>{{$scienceandtechnology[0]->name}}</h3>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <ul class="list-posts">
-                                            @foreach($helth as $post)
-                                                @if (!$loop->first)
-                                                    <li>
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                             alt="{{$post->name}}">
-                                                        <div class="post-content">
-                                                            <h2><a href="{{$post->url}}">{{$post->name}} </a>
-                                                            </h2>
-                                                            <ul class="post-tags">
-                                                                <li>
-                                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </div>
-                            @endif
-                            @if(count($discover)>0)
-                                <div class="item">
-                                    @if(isset($discover[0]))
-                                        <div class="news-post image-post2">
-                                            <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($discover[0]->image, 'under_post') }}"
-                                                     alt="{{$discover[0]->name}}">
-                                                <div class="hover-box">
-                                                    <div class="inner-hover">
-                                                        <h2>
-                                                            <a href="{{$discover[0]->url}}">{{$discover[0]->name}} </a>
-                                                        </h2>
-                                                        <ul class="post-tags">
-                                                            <li>
-                                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($discover[0]->published_at)) }}
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <ul class="list-posts">
-                                            @foreach($discover as $post)
-                                                @if (!$loop->first)
-                                                    <li>
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                             alt="{{$post->name}}">
-                                                        <div class="post-content">
-                                                            <h2><a href="{{$post->url}}">{{$post->name}} </a>
-                                                            </h2>
-                                                            <ul class="post-tags">
-                                                                <li>
-                                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </div>
-                            @endif
-                            @if(count($social)>0)
-                                <div class="item">
-                                    @if(isset($social[0]))
-                                        <div class="news-post image-post2">
-                                            <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($social[0]->image, 'under_post') }}"
-                                                     alt="{{$social[0]->name}}">
-                                                <div class="hover-box">
-                                                    <div class="inner-hover">
-                                                        <h2><a href="{{$social[0]->url}}">{{$social[0]->name}} </a>
-                                                        </h2>
-                                                        <ul class="post-tags">
-                                                            <li>
-                                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($social[0]->published_at)) }}
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <ul class="list-posts">
-                                            @foreach($social as $post)
-                                                @if (!$loop->first)
-
-                                                    <li>
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                             alt="{{$post->name}}">
-                                                        <div class="post-content">
-                                                            <h2><a href="{{$post->url}}">{{$post->name}} </a>
-                                                            </h2>
-                                                            <ul class="post-tags">
-                                                                <li>
-                                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                @endif
-
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </div>
-                            @endif
-                        </div>
-
-                    </div>
-                    <!-- End carousel box -->
-
-
-                </div>
-                <!-- End block content -->
-
-            </div>
-
-            <div class="col-sm-4">
-
-                <!-- sidebar -->
-                <div class="sidebar">
-
-
-                    <div class="widget features-slide-widget">
-                        <div class="title-section">
-                            <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(85)}}</span></h1>
-                        </div>
-                        <div class="image-post-slider tr-slider">
-                            <ul class="bxslider">
-
-                                @foreach($art as $post)
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($scienceandtechnology[0]);
+                            @endphp
+                            <ul class="list-posts">
+                                @foreach($scienceandtechnology as $post)
                                     <li>
-                                        <div class="news-post image-post2">
-                                            <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
-                                                     alt="{{$post->name}}">
-                                                <div class="hover-box">
-                                                    <div class="inner-hover">
-                                                        <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                                        <ul class="post-tags">
-                                                            <li><br></li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                             alt="{{$post->name}}">
+                                        <div class="post-content">
+                                            <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
                                         </div>
                                     </li>
                                 @endforeach
 
                             </ul>
                         </div>
-                    </div>
 
-                    <div class="widget features-slide-widget">
-                        <div class="title-section">
-                            <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(152)}}</span></h1>
-                        </div>
-                        <div class="image-post-slider tr-slider">
-                            <ul class="bxslider">
-
-                                @foreach($investigations  as $post)
-                                    <li>
-                                        <div class="news-post image-post2">
+                        <div class="col-md-4">
+                            <div class="title-section">
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(85)}}</span>
+                                </h1>
+                            </div>
+                            <div class="row">
+                                <a href="{{$art[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
+                                                <img src="{{ RvMedia::getImageUrl($art[0]->image, 'under_post') }}"
                                                      alt="{{$post->name}}">
-                                                <div class="hover-box">
-                                                    <div class="inner-hover">
-                                                        <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                                        <ul class="post-tags">
-                                                            <li><br></li>
-
-                                                        </ul>
-                                                    </div>
+                                                <div class="rate-level">
+                                                    <h3>{{$art[0]->name}}</h3>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($art[0]);
+                            @endphp
+                            <ul class="list-posts">
+                                @foreach ($art as $post)
+
+                                    <li>
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                             alt="{{$post->name}}">
+                                        <div class="post-content">
+                                            <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
                                         </div>
                                     </li>
                                 @endforeach
 
                             </ul>
                         </div>
+
+                        <div class="col-md-4">
+
+                            <div class="title-section">
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(152)}}</span>
+                                </h1>
+                            </div>
+
+                            <div class="row">
+                                <a href="{{$investigations[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
+                                            <div class="post-gallery">
+                                                <img src="{{ RvMedia::getImageUrl($investigations[0]->image, 'under_post') }}"
+                                                     alt="">
+                                                <div class="rate-level">
+                                                    <h3>{{$investigations[0]->name}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($investigations[0]);
+                            @endphp
+                            <ul class="list-posts">
+                                @foreach ($investigations as $post)
+
+                                    <li>
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+
+                        </div>
+
                     </div>
 
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(72)}}</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach($translate as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                     alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(77)}}</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach($mnoa3 as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                     alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
 
                 </div>
-                <!-- End sidebar -->
-
             </div>
+            <!-- End grid-box -->
 
         </div>
-
+        <!-- End block content -->
     </div>
 </section>
-<!-- End block-wrapper-section -->
+
+<!-- انفوغرافيك -->
 <section class="block-wrapper new-dark-style">
     <div class="container">
         <!-- block content -->
@@ -1268,144 +1242,177 @@ $meta->addProperty('site-name', 'نداء بوست');
     </div>
     </div>
 </section>
-<section class="latest-videos-section  hidden">
-    <div class="container">
-        <div class="title-section">
-            <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(75)}}</span></h1>
-        </div>
 
-        <!-- slider-caption-box -->
-        <div class="slider-caption-box2">
-
-            <div class="slider-holder">
-
-                <div class="news-post iframe-post">
-                    <div class="image-post-slider">
-                        <ul class="bxslider">
-                            @foreach($sport as $post)
-                                <li><img src="{{ RvMedia::getImageUrl($post->image, 'post_main') }}"
-                                         alt="{{$post->name}}"></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <div id="bx-pager">
-                <ul class="list-posts">
-                    @foreach($sport as $post)
-                        <li>
-                            <img src="{{ RvMedia::getImageUrl($post->image, 'thumb', false, RvMedia::getDefaultImage()) }}"
-                                 alt="{{$post->name}}">
-                            <div class="post-content">
-                                <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                <ul class="post-tags">
-                                    <li>
-                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <!-- End slider-caption-box -->
-    </div>
-</section>
-<!-- feature-video-section
-================================================== -->
-
-<!-- End feature-video-section -->
-
-<!-- block-wrapper-section
-================================================== -->
+<!-- اكتشافات سوشال ميديا تراث تحقيقات  -->
 <section class="block-wrapper">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-8 content-blocker">
+        <!-- block content -->
+        <div class="block-content">
 
-                <!-- block content -->
-                <div class="block-content">
-
-                    <!-- masonry box -->
-                    <div class="masonry-box">
-
-                        <div class="title-section">
-                            <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(87)}}</span></h1>
-                        </div>
-
-                        <div class="latest-articles iso-call">
-                            @foreach($mjtama3 as $post)
-                                <div class="news-post standard-post3 default-size">
-                                    <div class="post-gallery">
-                                        <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
-                                             alt="{{$post->name}}">
-                                    </div>
-                                    <div class="post-title">
-                                        <a class="category-post tech"
-                                           href="{{$post->categories->last()->url}}">{{$post->categories->last()->name}}</a>
-                                        <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
-                                        <ul class="post-tags">
-                                            <li>
-                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                            </li>
-                                            <li><i class="fa fa-user"></i> <a
-                                                        href="/articles/{{ $post->researcher->id }}">{{ $post->researcher->getName() }}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                    </div>
-                    <!-- End masonry box -->
-
-                </div>
-                <!-- End block content -->
-
-            </div>
-
-            <div class="col-md-4">
-                <!-- sidebar -->
-                <div class="sidebar">
-                    <div class="widget tags-widget">
-                        <div>
+            <!-- grid-box -->
+            <div class="grid-box">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-4">
                             <div class="title-section">
-                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(86)}}</span>
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(83)}}</span>
                                 </h1>
                             </div>
+                            <div class="row">
+                                <a href="{{$discover[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
+                                            <div class="post-gallery">
+                                                <img src="{{ RvMedia::getImageUrl($discover[0]->image, 'under_post') }}"
+                                                     alt="{{$discover[0]->name}}">
+                                                <div class="rate-level">
+                                                    <h3>{{$discover[0]->name}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($discover[0]);
+                            @endphp
                             <ul class="list-posts">
-                                @foreach($cinema as $post)
+                                @foreach($discover as $post)
                                     <li>
                                         <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
                                              alt="{{$post->name}}">
                                         <div class="post-content">
-                                            <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                            <ul class="post-tags">
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                </li>
-                                            </ul>
+                                            <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
                                         </div>
                                     </li>
                                 @endforeach
+
                             </ul>
                         </div>
+
+                        <div class="col-md-4">
+                            <div class="title-section">
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(84)}}</span>
+                                </h1>
+                            </div>
+                            <div class="row">
+                                <a href="{{$social[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
+                                            <div class="post-gallery">
+                                                <img src="{{ RvMedia::getImageUrl($social[0]->image, 'under_post') }}"
+                                                     alt="{{$social[0]->name}}">
+                                                <div class="rate-level">
+                                                    <h3>{{$social[0]->name}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($social[0]);
+                            @endphp
+                            <ul class="list-posts">
+                                @foreach ($social as $post)
+
+                                    <li>
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                             alt="{{$post->name}}">
+                                        <div class="post-content">
+                                            <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            @if(isset($dialogues[0]))
+                            <div class="title-section">
+                                <h1><span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(150)}}</span>
+                                </h1>
+                            </div>
+
+                            <div class="row">
+                                <a href="{{$dialogues[0]->url}}">
+                                    <div class="col-md-12">
+                                        <div class="news-post standard-post">
+                                            <div class="post-gallery">
+                                                <img src="{{ RvMedia::getImageUrl($dialogues[0]->image, 'under_post') }}"
+                                                     alt="{{$dialogues[0]->name}}">
+                                                <div class="rate-level">
+                                                    <h3>{{$dialogues[0]->name}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @php
+                            unset($dialogues[0]);
+                            @endphp
+                            <ul class="list-posts">
+                                @foreach ($dialogues as $post)
+
+                                    <li>
+                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                            @endif
+                        </div>
+
                     </div>
 
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(153)}}</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach($turath as $post)
+                                            <li>
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                     alt="{{$post->name}}">
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
 
                 </div>
-                <!-- End sidebar -->
             </div>
+            <!-- End grid-box -->
 
         </div>
+        <!-- End block content -->
     </div>
 </section>
-<!-- End block-wrapper-section -->
-<!-- End block-wrapper-section -->
+
+
+<!-- لايف ستايل -->
 <section class="block-wrapper new-dark-style lifestyle">
     <div class="container">
         <!-- block content -->
@@ -1426,7 +1433,7 @@ $meta->addProperty('site-name', 'نداء بوست');
 
                                 </div>
                                 <a href="{{$post->url}}"><img
-                                            src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
+                                            src="{{ RvMedia::getImageUrl($post->image) }}"
                                     /></a>
                                 <div class="content">
                                     <div class="date"><span
@@ -1448,243 +1455,9 @@ $meta->addProperty('site-name', 'نداء بوست');
     </div>
     </div>
 </section>
-<section class="block-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
 
-                <!-- block content -->
-                <div class="block-content">
-
-                    <!-- grid box -->
-                    <div class="grid-box">
-                        <div class="row">
-
-                            <div class="col-md-6 col-sm-12">
-                                <div class="title-section">
-                                    <h1>
-                                        <span class="fashion">{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(76)}}</span>
-                                    </h1>
-                                </div>
-                                <div class="image-post-slider">
-                                    <ul class="bxslider">
-                                        @foreach($lifestyle as $post)
-                                            <li>
-                                                <div class="news-post image-post2">
-                                                    <div class="post-gallery">
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
-                                                             alt="{{ $post->name }}">
-                                                        <div class="hover-box">
-                                                            <div class="inner-hover">
-                                                                <h2><a href="{{$post->url}}">{{ $post->name }}</a>
-                                                                </h2>
-                                                                <ul class="post-tags">
-                                                                    <li>
-                                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                    </li>
-                                                                    <li><i class="fa fa-user"></i> <a
-                                                                                href="/articles/{{ $post->researcher->id }}">{{ $post->researcher->getName() }}</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-sm-12">
-                                <div class="title-section">
-                                    <h1>
-                                        <span class="world">{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(77)}}</span>
-                                    </h1>
-                                </div>
-
-                                <div class="owl-wrapper">
-                                    <div class="owl-carousel" data-num="1">
-
-                                        <div class="item">
-                                            <ul class="list-posts">
-                                                <?php $counter = 1; ?>
-                                                @foreach($art as $post)
-                                                    <?php if ($counter < 3) {
-                                                    $counter++; ?>
-                                                    <li>
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                             alt="{{ $post->name }}">
-                                                        <div class="post-content">
-                                                            <h2><a href="{{ $post->url }}">{{ $post->name }}</a>
-                                                            </h2>
-                                                            <ul class="post-tags">
-                                                                <li>
-                                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <?php } ?>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="item">
-                                            <ul class="list-posts">
-                                                <?php $counter = 1; ?>
-                                                @foreach($cinema as $post)
-                                                    <?php if ($counter < 3) {
-                                                    $counter++; ?>
-                                                    <li>
-                                                        <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                             alt="{{ $post->name }}">
-                                                        <div class="post-content">
-                                                            <h2><a href="{{ $post->url }}">{{ $post->name }}</a>
-                                                            </h2>
-                                                            <ul class="post-tags">
-                                                                <li>
-                                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <?php } ?>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- End grid box -->
-
-
-                </div>
-                <!-- End block content -->
-
-            </div>
-
-            <div class="col-md-4 col-sm-12">
-
-                <!-- sidebar -->
-                <div class="sidebar">
-
-
-                    <div class="widget tags-widget">
-
-                        <div class="title-section">
-                            <h1><span>{{__("Tags")}}</span></h1>
-                        </div>
-
-                        <ul class="tag-list">
-                            @foreach (get_popular_tags(20) as $tag)
-                                <li><a href="{{ $tag->url }}">{{ $tag->name }}</a></li>
-                            @endforeach
-                        </ul>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="block-wrapper non-sidebar sky-news">
-    <div class="container">
-
-        <!-- block content -->
-        <div class="block-content non-sidebar">
-
-            <!-- grid-box -->
-            <div class="grid-box">
-
-                <div class="row">
-                    <div class="col-md-9">
-
-                        <div class="title-section">
-                            <h1><span>Latest Reviews</span></h1>
-                        </div>
-
-                        <div class="row">
-                            @foreach(get_recent_posts(6) as $post)
-                                <div class="col-md-4">
-                                    <div class="news-post standard-post">
-                                        <div class="post-gallery">
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'under_post') }}"
-                                                 alt="">
-                                            <div class="rate-level">
-                                                <p><span>5.0</span> Mediocre</p>
-                                            </div>
-                                        </div>
-                                        <div class="post-content">
-                                            <h2><a href="single-post.html">{{ $post->name }}</a></h2>
-                                            <ul class="post-tags">
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-3 col-sm-0">
-
-                        <!-- sidebar -->
-                        <div class="sidebar small-sidebar">
-
-                            <div class="widget review-widget">
-                                <h1>Top Reviews</h1>
-                                <ul class="review-posts-list">
-                                    @foreach(get_featured_posts(2) as $post)
-                                        <li>
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}" alt="">
-                                            <h2><a href="single-post.html">{{$post->name}}</a></h2>
-                                            <span class="date"><i
-                                                        class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}</span>
-                                            <span class="post-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- End grid-box -->
-
-    </div>
-    <!-- End block content -->
-
-    </div>
-</section>
-
-
-<!-- block-wrapper-section
-================================================== -->
-<section class="block-wrapper">
+<!-- صور  -->
+<section class="block-wrapper" style="display: none;">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

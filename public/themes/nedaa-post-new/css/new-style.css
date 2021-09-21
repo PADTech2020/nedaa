@@ -559,7 +559,6 @@ figure.snip1253.hover img {
     background-color: #232323!important;
     padding-top:40px;
     padding-bottom:40px;
-    margin-bottom: 30px;
 }
 .post-small-youtube{
     background-color: #2d2d2d;
@@ -678,6 +677,7 @@ h1 span::after {
 
 .block-wrapper{
     background-color: #f5f8f8;
+    margin-bottom: 20px;
 }
 
 .sidebar .widget {
@@ -768,4 +768,8 @@ ul.post-tags li {
 
 ul.list-posts > li .post-content h2 {
     font-size: 15px;
+}
+
+body {
+    background-color: #f5f8f8;
 }
