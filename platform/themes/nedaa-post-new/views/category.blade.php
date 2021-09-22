@@ -13,68 +13,180 @@ $tw_username = substr(strrchr(theme_option('twitter'), "/"), 1);
 $tw_followers = ''
 ?>
 
-<!-- block-wrapper-section
-    ================================================== -->
-    <section class="block-wrapper left-sidebar">
+        <!-- انفوغرافيك -->
+<section class="block-wrapper new-dark-style">
     <div class="container">
-        <div class="row">
+        <!-- block content -->
+        <div class="block-content new-dark-style">
+            <div class="title-section">
+                <h1><span>{{ $category->name }}</span></h1>
+            </div>
+            <div class="row">
+                <?php $post = $posts[0];?>
+                @if($post)
 
-            <div class="col-md-12 col-sm-12">
-
-                <!-- block content -->
-                <div class="block-content">
-
-                
-                    <!-- article box -->
-                    <div class="article-box">
-                        <div class="title-section">
-                            <h1><span class="world">{{ $category->name }}</span></h1>
-                        </div>
-
-                        @if ($posts->count() > 0)
-                            @foreach ($posts as $post)
-                                <div class="news-post article-post">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="post-gallery">
-                                                <img alt="{{$post->name}}" src="{{ RvMedia::getImageUrl($post->image, 'post_main') }}">
-                                                <a class="category-post world" href="{{$post->categories->last()->url}}">{{$post->categories->last()->name}}</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="post-content">
-                                                <h2><a href="{{ $post->url }}">{{ $post->name }}</a></h2>
-                                                <ul class="post-tags">
-                                                    <li><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}</li>
-                                                    <li><i class="fa fa-user"></i><a href="/articles/{{ $post->researcher->id }}">{{ $post->researcher->getName() }}</a></li>
-                                                    <!-- <li><i class="fa fa-eye"></i>{{ $post->views }}</li> -->
-                                                </ul>
-                                                <p>{{ $post->description }}</p>
-                                                <a href="{{ $post->url }}" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>{{__("Read More")}}</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="post post-dark col-lg-6 col-12 mb-20">
+                        <div class="post-wrap">
+                            <div id="dark-main-img" class="">
+                                <a href="{{$post->url}}"><img
+                                            src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
+                                    /></a>
+                                <div class="content">
+                                    <h3>
+                                        {{$post->name}}
+                                    </h3>
+                                    <p> {{$post->description}}</p>
                                 </div>
-                            @endforeach
-                        <div class="pagination-box">
-                            {!! $posts->links() !!}
+                            </div>
+
+
                         </div>
+                    </div>
+
+                @endif
+                <?php $post = $posts[1];?>
+                @if($post)
+                    <div class="post post-dark col-lg-6 col-12 mb-20">
+                        <div class="post-wrap">
+                            <div id="dark-main-img" class="">
+                                <a href="{{$post->url}}"><img
+                                            src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
+                                    /></a>
+                                <div class="content">
+                                    <h3>
+                                        {{$post->name}}
+                                    </h3>
+                                    <p> {{$post->description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @endif
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- سوريا -->
+<section class="block-wrapper non-sidebar sky-news">
+    <div class="container">
+
+        <!-- block content -->
+        <div class="block-content non-sidebar">
+
+            <!-- grid-box -->
+            <div class="grid-box">
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div class="title-section">
+                            <h1><span>{{ $category->name }}</span></h1>
+                        </div>
+                        @if(count($posts))
+                            <div class="row">
+
+                                @foreach($posts as $post)
+                                    <a href="{{ $post->url }}">
+                                        <div class="col-md-4">
+                                            <div class="news-post standard-post">
+                                                <div class="post-gallery">
+                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                                         alt="{{ $post->name }}">
+                                                </div>
+                                                <div class="post-content">
+                                                    <h2>{{ $post->name }}</h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
+
+
+                            </div> <div class="pagination-box">
+                                {!! $posts->links() !!}
+                            </div>
                         @else
                             <div class="alert alert-warning">
                                 <p>{{ __('There is no data to display!') }}</p>
                             </div>
                         @endif
-
                     </div>
-                    <!-- End article box -->
-                </div>
-                <!-- End block content -->
 
+                    <div class="col-md-3">
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>زوارنا يتصفحون الآن</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach(get_featured_posts(2) as $post)
+                                            <li>
+                                                <a href="{{$post->url}}"><img
+                                                            src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                            alt="{{$post->name}}"></a>
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget tags-widget">
+                                <div>
+                                    <div class="title-section">
+                                        <h1>
+                                            <span>الأكثر قراءة</span>
+                                        </h1>
+                                    </div>
+                                    <ul class="list-posts">
+                                        @foreach(get_popular_posts(3) as $post)
+                                            <li>
+                                                <a href="{{$post->url}}"><img
+                                                            src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                                                            alt="{{$post->name}}"></a>
+                                                <div class="post-content">
+                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
+                                                    <ul class="post-tags">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End sidebar -->
+                    </div>
+                </div>
             </div>
 
-
         </div>
+        <!-- End grid-box -->
+
+    </div>
+    <!-- End block content -->
 
     </div>
 </section>
-<!-- End block-wrapper-section -->
+
+<!-- block-wrapper-section

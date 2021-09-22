@@ -14,18 +14,11 @@
     <div class="row">
         <div class="col-md-7">
             <div class="news-holder">
-                <div class="news-headlines">
-                    <ul class="">
-                        @foreach($slider as $slide)
-                            <li class="@if ($slide == reset($slider )) selected @endif ">{{$slide->name}}</li>
-                        @endforeach
-                    </ul>
-                </div>
 
                 <div class="news-preview">
 
                     @foreach($slider as $slide)
-                        <div class="news-content top-content">
+                        <div class="news-content @if($loop->first) top-content @endif">
                             <img src="{{ RvMedia::getImageUrl($slide->image,'post_main' ) }}">
                             <div class="resume">
                                 <a href="{{$slide->url}}" class="title">{{$slide->name}}</a>
@@ -46,6 +39,14 @@
                         </div><!-- .news-content -->
                     @endforeach
                 </div><!-- .news-preview -->
+                <div class="news-headlines">
+                    <ul class="">
+                        @foreach($slider as $slide)
+                            <li class="@if ($slide == reset($slider )) selected @endif ">{{$slide->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+
             </div>
         </div>
         <div class="col-md-5 pd-5">

@@ -43,7 +43,7 @@
                             </div>
                         @endif
 
-                        <div class="title-post">
+                        <div class="title-post new-dark-style">
                             <h1>{{ $post->name }}</h1>
                             <ul class="post-tags">
                                 <li><i class="fa fa-list-alt"></i><a
@@ -130,67 +130,10 @@
                         [image-ad][/image-ad]
                         <br>
 
-                        <?php
-                            // $researcher = \Botble\Researchers\Models\Researchers::getResearcherByid($post->researcher->id);
-                            // Posts of reseaarcher.
-                            $posts = Botble\Blog\Models\Post::join("language_meta", function ($join) {
-                                $join->on("language_meta.reference_id", "=", "id")
-                                    ->where(["language_meta.reference_type"=> 'Botble\Blog\Models\Post','language_meta.lang_meta_code'=>'ar']);
-                            })->where(['status' => Botble\Base\Enums\BaseStatusEnum::PUBLISHED(), 'researcher_id' => $post->researcher->id])->paginate(4);
-                        ?>
 
 
-                        <div class="about-more-autor">
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a href="#about-autor" data-toggle="tab">{{__("About Author")}}</a>
-                                </li>
-                                <li>
-                                    <a href="#more-autor" data-toggle="tab">{{__("Latest Articles For Author")}}</a>
-                                </li>
-                            </ul>
 
-                            <div class="tab-content">
 
-                                <div class="tab-pane active" id="about-autor">
-                                    <div class="autor-box">
-                                        <img src="{{ get_object_image( $researcher->image, 'thumb') }}"
-                                             alt="{{ $researcher->getName() }}">
-                                        <div class="autor-content">
-                                            <div class="autor-title">
-                                            <h1><a href="/articles/{{ $researcher->id }}">{{ $researcher->getName() }}</a></h1>
-                                                <ul class="autor-social">
-                                                    <li><a href="{{ $researcher->facebook }}" class="facebook"><i
-                                                                    class="fa fa-facebook"></i></a></li>
-                                                    <li><a href="{{ $researcher->twitter }}" class="twitter"><i
-                                                                    class="fa fa-twitter"></i></a></li>
-                                                    <li><a href="{{ $researcher->instagram }}" class="instagram"><i
-                                                                    class="fa fa-instagram"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <p>{{ str_replace("&nbsp;", "", strip_tags($researcher->summary)) }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane" id="more-autor">
-                                    <div class="more-autor-posts">
-
-                                    @foreach ($posts as $single_post)
-                                        <div class="news-post image-post3">
-                                            <img src="{{ RvMedia::getImageUrl($single_post->image, 'thumb') }}" alt="{{ $single_post->name }}">
-                                            <div class="hover-box">
-                                                <h2><a href="{{ $single_post->url }}">{{ $single_post->name }}</a></h2>
-                                                <ul class="post-tags">
-                                                    <li><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($single_post->published_at)) }}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- carousel box -->
                         <div class="carousel-box owl-wrapper">
@@ -242,92 +185,7 @@
 
                 <!-- sidebar -->
                 <div class="sidebar large-sidebar">
-
-                    <div class="widget tab-posts-widget" style="display: none;">
-
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li class="active">
-                                <a href="#option1" data-toggle="tab">{{__('Popular')}}</a>
-                            </li>
-                            <li class="active">
-                                <a href="#option2" data-toggle="tab">{{__('Latest')}}</a>
-                            </li>
-                            <li>
-                                <a href="#option3" data-toggle="tab">{{__('Featured')}}</a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="option1">
-                                <ul class="list-posts">
-
-                                    @foreach (get_popular_posts(5) as $post)
-                                        <li>
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                alt="{{$post->name}}">
-                                            <div class="post-content">
-                                                <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
-                                                <ul class="post-tags">
-                                                    <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-                            <div class="tab-pane" id="option2">
-                                <ul class="list-posts">
-
-                                    @foreach (get_recent_posts(5) as $post)
-                                        <li>
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                alt="{{$post->name}}">
-                                            <div class="post-content">
-                                                <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
-                                                <ul class="post-tags">
-                                                    <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-                            <div class="tab-pane" id="option3">
-                                <ul class="list-posts">
-
-                                    @foreach (get_featured_posts(5) as $post)
-                                        <li>
-                                            <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                alt="{{ $post->name }}">
-                                            <div class="post-content">
-                                                <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
-                                                <ul class="post-tags">
-                                                    <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="widget post-widget">
-                        <a class="twitter-timeline" data-height="600"
-                        href="{{ theme_option('twitter') }}?ref_src=twsrc%5Etfw">
-                            آخر التغريدات
-                        </a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
+                    {!! do_shortcode('[author-box id="'.$post->researcher->id.'"][/author-box]') !!}
 
                 </div>
                 <!-- End sidebar -->

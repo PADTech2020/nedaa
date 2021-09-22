@@ -32,6 +32,11 @@ add_shortcode('google-map', 'Google map', 'Custom map', function ($shortCode) {
 add_shortcode('youtube-video', 'Youtube video', 'Add youtube video', function ($shortCode) {
     return Theme::partial('short-codes.video', ['url' => $shortCode->content]);
 });
+
+add_shortcode('author-box', 'Author Box', 'Add Author-box ', function ($shortCode) {
+    return Theme::partial('short-codes.author-box', ['id' => $shortCode->id]);
+});
+
 add_shortcode('image-ad', 'Image Ad', 'Add image', function ($shortCode) {
     return Theme::partial('short-codes.image-ad', ['url' => $shortCode->content]);
 });

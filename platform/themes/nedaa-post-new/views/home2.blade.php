@@ -646,13 +646,13 @@ $meta->addProperty('site-name', 'نداء بوست');
                                 <div data-yid="{{ GetYoutubeID($video_post_small->youtube_link) }}"
                                      class="post post-small post-small-youtube post-list post-dark post-separator-border">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 col-xs-4">
                                             <!-- Image -->
                                             <img style="width:100%;height: 71px;"
                                                  src="{{ RvMedia::getImageUrl($video_post_small->image, $loop->first ? 'thumb' : 'thumb') }}"
                                                  alt="{{$video_post_small->name}}">
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-9 col-xs-8">
                                             <!-- Content -->
                                             <div class="content">
                                                 <span>{{ $video_post_small->categories->last()->name }}</span><br>
@@ -660,7 +660,6 @@ $meta->addProperty('site-name', 'نداء بوست');
                                             </div>
 
                                             <!-- Title -->
-
 
                                         </div>
 

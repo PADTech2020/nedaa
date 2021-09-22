@@ -627,11 +627,6 @@ figure.snip1253.hover img {
     text-decoration: none;
 }
 
-@media (min-width: 1200px) {
-.container {
-    width: 90%;
-}
-}
 
 .sidebar .post-widget .posts-line .news-post {
 width: 33.3333%;
@@ -874,4 +869,111 @@ footer .header_links{
 }
 .lang-ar .post-content, .lang-ar .post-content h2, .lang-ar .post-content p {
     font-size: 15px;
+}
+
+
+
+.authorbox {
+    margin-top: 25px;
+    padding: 8px 0 8px 0;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    border: 0;
+    display: flex;
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    font-size: .875rem;
+    margin-top: 8px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+    margin-bottom: 8px;
+    border-radius: 6px;
+    flex-direction: column;
+}
+.single-post-box .about-more-autor .autor-box .autor-content {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.title-post.new-dark-style{
+    margin-top: 10px;
+    padding-top: 15px;
+
+}
+.title-post.new-dark-style h1{
+    color: #ffffff !important;
+}
+
+.single-post-box .about-more-autor .autor-box {
+    padding: 15px 15px 15px 0;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+.single-post-box .about-more-autor .autor-box .autor-content p {
+    margin: 0;
+    font-size: 12px!important;
+    display: block!important;
+    float: right!important;
+}
+
+@media (max-width: 600px) {
+
+
+}
+@media (min-width: 1366px) {
+    .container {
+        width: 90%;
+    }
+}
+@media (max-width: 1366px) {
+    .container {
+        width: 96%;
+    }
+}
+@media (max-width: 768px) {
+    .news-headlines {
+        width: 100%;
+        background: #232323;
+         position: relative;
+    }
+    .news-headlines ul{
+        list-style: none;
+    }
+    .news-headlines li {
+        min-height: 50px;
+        font-size: 12px;
+        margin: 0px;
+        border-bottom: 1px solid #dddddd;
+    }
+    .search-button button {
+        border: none;
+        background: transparent;
+        padding: 1.9em 20px;
+        color: #fff;
+    }
+    .search-form {
+
+        background-color: transparent;
+        width: 100%;
+        float: left;
+        margin-top: 114px;
+    }
+    .search-form .form input {
+        -webkit-appearance: none;
+        border: none;
+        width: 100%;}
+    #search-submit {
+        height: 100%;
+        border: 0px;
+        background: transparent;
+        padding: 0px;
+    }
+    #search-submit i{
+    color:#555;
+}
 }
