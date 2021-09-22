@@ -150,7 +150,7 @@
                     <div class="advertisement">
                         <div class="search-form">
                             <form accept-charset="UTF-8" action="{{ route('public.search') }}" method="GET">
-                                <div class="form">
+                                <div class="form" style="height:30px">
                                     <button type="submit" id="search-submit"><i class="fa fa-search"></i>
                                     </button>
                                     <input type="text" id="search" name="q" placeholder="{{__('Search Word')}}">

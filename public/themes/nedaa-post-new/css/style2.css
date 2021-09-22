@@ -2967,7 +2967,7 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
     position: relative;
 }
 
-.sidebar .recent-comments-widget ul.comment-list li .comment-content p.main-message:before {
+/* .sidebar .recent-comments-widget ul.comment-list li .comment-content p.main-message:before {
     content: "";
     position: absolute;
     width: 10px;
@@ -2982,7 +2982,7 @@ section.big-slider .big-bxslider li .image-post2 .hover-box .inner-hover h2 {
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
-}
+} */
 
 .sidebar .recent-comments-widget ul.comment-list li .comment-content span {
     display: inline-block;

@@ -6,11 +6,54 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="widget text-widget">
-                        <h1>{{__("Nedaa Post")}}</h1>
+                        <h1><span>{{__("Nedaa Post")}}</span></h1>
                         <p>{{theme_option('who_we_are')}} </p>
                     </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="widget  links-widget">
+                        <h1><span>{{__("من نحن")}}</span></h1>
+                        <ul class="">
+
+                            <li><span class="time-now"><a
+                                            href="/<?=app()->getLocale()?>/contact-us">{{__('Contact Us')}}</a></span>
+                            </li>
+                            <li><span class="time-now"><a
+                                            href="/<?=app()->getLocale()?>/about-us">{{__('About Us')}}</a></span>
+                            </li>
+                            <li><span class="time-now"><a
+                                            href="/<?=app()->getLocale()?>/alahkam-oalshrot">{{__('الأحكام والشروط')}}</a></span>
+                            </li>
+                            <li><span class="time-now"><a
+                                            href="/<?=app()->getLocale()?>/">{{__('سياسة الخصوصية')}}</a></span>
+                            </li>
+                            <li><span class="time-now"><a
+                                            href="/<?=app()->getLocale()?>/">{{__('هيئة التحرير')}}</a></span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget Subscribe-widget">
+                        <h1><span>{{__("تواصل معنا")}}</span></h1>
+                        <p>{{__('إشترك في قائمتنا البريدية')}}</p>
+                        <form action="#">
+                            <input type="/" placeholder="البريد الألكتروني" />
+                            <input type="submit" value="إشترك" />
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="widget social-widget">
-                        <h1>{{__('Social Media')}}</h1>
+                        <h1><span>{{__('Social Media')}}</span></h1>
+                        <a class="" href="/">
+                            <img width="120" style="margin-bottom: 20px"
+                                 src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}"
+                                 alt="Nedaa Post logo"></a>
+                        <br>
                         <ul class="social-icons">
                             <li><a target="_blank" href="{{ theme_option('facebook') }}" class="facebook"><i
                                             class="fa fa-facebook"></i></a></li>
@@ -26,50 +69,6 @@
                                             class="fa fa-linkedin"></i></a></li>
 
 
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget posts-widget">
-                        <h1>{{__("Featured News")}}</h1>
-                        <ul class="list-posts">
-                            @foreach (get_featured_posts(3) as $post)
-                                <li>
-                                    <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                         alt="{{$post->name}}">
-                                    <div class="post-content">
-                                        <a href="{{ $post->categories->first()->url }}">{{ $post->categories->first()->name }}</a>
-                                        <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
-                                        <ul class="post-tags">
-                                            <li>
-                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget  tags-widget">
-                        <h1><span>{{__("Tags")}}</span></h1>
-                        <ul class="tag-list">
-                            @foreach (get_popular_tags(12) as $tag)
-                                <li><a href="{{ $tag->url }}">{{ $tag->name }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget flickr-widget">
-                        <h1>{{__("Trending")}}</h1>
-                        <ul class="flickr-list">
-                            @foreach (\Botble\Blog\Models\Post::getTrending(6) as $post)
-                                <li><a href="{{ $post->url }}"><img
-                                                src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                alt="{{ $post->name }}"></a></li>
-                            @endforeach
                         </ul>
                     </div>
                 </div>

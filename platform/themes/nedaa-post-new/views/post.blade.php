@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-8 col-sm-8">
+            <div class="col-md-9 col-sm-12">
 
                 <!-- block content -->
                 <div class="block-content">
@@ -58,44 +58,6 @@
                             </ul>
                         </div>
 
-                        <div class="share-post-box">
-                            <ul class="share-box">
-                                <li><a class="facebook" target="_blank"
-                                       href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}"><i
-                                                class="fa fa-facebook"></i><span></span></a></li>
-                                <li><a class="twitter" target="_blank"
-                                       href="https://twitter.com/share?url={{ urlencode(url()->current()) }}&text={{ $post->description }}"><i
-                                                class="fa fa-twitter"></i><span></span></a></li>
-
-                                <li><a class="whatsapp"
-                                       href="whatsapp://send?text={{ url()->current() }}"
-                                       data-action="share/whatsapp/share"><i
-                                                class="fa fa-whatsapp" aria-hidden="true"></i><span></span></a></li>
-                                <li><a class="telegram"
-                                       href="javascript:window.open('https://t.me/share/url?url={{ url()->current() }}')"><i
-                                                class="fa fa-telegram" aria-hidden="true"></i><span></span></a></li>
-                                <li><a class="linkedin" target="_blank"
-                                       href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(url()->current()) }}"><i
-                                                class="fa fa-linkedin"></i><span></span></a></li>
-                                <li><a class="google" target="_blank"
-                                       href="mailto:?subject={{ $post->name }}&body={{ urlencode($post->url) }} <br> {{ $post->description }}"><i
-                                                class="fa fa-envelope"></i><span></span></a></li>
-                                <li><a class="twitter" onclick="window.print();" target="_blank" href="#"><i
-                                                class="fa fa-print"></i><span></span></a></li>
-                                @if($post->short_link)
-                                    <li style="position: relative"><a id="short_link_ico" class="linkedin"><i
-                                                    class="fa fa-link"></i><span>
-                                        </span></a>
-                                        <div id="short_link" class="short_link"><a class="copy-link "><i
-                                                        class="fa fa-copy"></i></a>
-                                            <input class="text_short_link" id="text_short_link" type="text"
-                                                   value="https://nedaa-post.com/article/{{ $post->short_link }}"/>
-                                        </div>
-                                    </li>
-                                @endif
-                            </ul>
-                        </div>
- 
                         <div class="post-gallery">
                             <img src="{{ RvMedia::getImageUrl($post->image) }}"
                                  alt="{{ $post->name }}">
@@ -146,8 +108,6 @@
                                 <li><a class="google" target="_blank"
                                        href="mailto:?subject={{ $post->name }}&body={{ urlencode($post->url) }} <br> {{ $post->description }}"><i
                                                 class="fa fa-envelope"></i><span></span></a></li>
-                                <li><a class="twitter" onclick="window.print();" target="_blank" href="#"><i
-                                                class="fa fa-print"></i><span></span></a></li>
                                 @if($post->short_link)
                                     <li style="position: relative"><a id="short_link_ico2" class="linkedin"><i
                                                     class="fa fa-link"></i><span>
@@ -163,14 +123,10 @@
                             </ul>
                         </div>
                         @if($post->categories->last()->name == 'رأي')
-                        <div style="border: 3px solid #9d2225;
-    padding: 10px;
-    background: #f2f2f2;
-    font-weight: bold;">
-                                     <span style="
-    font-weight: bold; text-align:center;   color: #000000;">{{__('المقالات المنشورة في "نداء بوست" تعبّر عن آراء كتابها وليس بالضرورة عن رأي الموقع.')}}
-                                 
-                                 </span></div><br>  @endif
+                        <div style="border: 3px solid #9d2225;padding: 10px;background: #f2f2f2;font-weight: bold;">
+                                     <span style="font-weight: bold; text-align:center;color: #000000;">{{__('المقالات المنشورة في "نداء بوست" تعبّر عن آراء كتابها وليس بالضرورة عن رأي الموقع.')}}
+                                 </span></div><br>
+                        @endif
                         [image-ad][/image-ad]
                         <br>
 
@@ -281,36 +237,13 @@
 
             </div>
 
-            <div class="col-md-4 col-sm-4">
+            
+            <div class="col-md-3 col-sm-4">
 
                 <!-- sidebar -->
                 <div class="sidebar large-sidebar">
 
-                    <div class="widget social-widget">
-                        <div class="title-section">
-                            <h1><span>{{__("Stay in touch with us")}}</span></h1>
-                        </div>
-                        <ul class="social-share">
-                            <li>
-                                <a href="{{ theme_option('facebook') }}" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <span class="number"></span>
-                                <span>{{__("Followers")}}</span>
-                            </li>
-                            <li>
-                                <a href="{{ theme_option('twitter') }}" class="twitter"><i
-                                            class="fa fa-twitter"></i></a>
-                                <span class="number"></span>
-                                <span>{{__("Followers")}}</span>
-                            </li>
-                            <li>
-                                <a href="{{ theme_option('telegram') }}" class="telegram"><i class="fa fa-telegram"></i></a>
-                                <span class="number"></span>
-                                <span>{{__("Followers")}}</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="widget tab-posts-widget">
+                    <div class="widget tab-posts-widget" style="display: none;">
 
                         <ul class="nav nav-tabs" id="myTab">
                             <li class="active">
@@ -331,7 +264,7 @@
                                     @foreach (get_popular_posts(5) as $post)
                                         <li>
                                             <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                 alt="{{$post->name}}">
+                                                alt="{{$post->name}}">
                                             <div class="post-content">
                                                 <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                 <ul class="post-tags">
@@ -351,7 +284,7 @@
                                     @foreach (get_recent_posts(5) as $post)
                                         <li>
                                             <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                 alt="{{$post->name}}">
+                                                alt="{{$post->name}}">
                                             <div class="post-content">
                                                 <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                 <ul class="post-tags">
@@ -371,7 +304,7 @@
                                     @foreach (get_featured_posts(5) as $post)
                                         <li>
                                             <img src="{{ RvMedia::getImageUrl($post->image, 'side_bar') }}"
-                                                 alt="{{ $post->name }}">
+                                                alt="{{ $post->name }}">
                                             <div class="post-content">
                                                 <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                 <ul class="post-tags">
@@ -390,14 +323,10 @@
 
                     <div class="widget post-widget">
                         <a class="twitter-timeline" data-height="600"
-                           href="{{ theme_option('twitter') }}?ref_src=twsrc%5Etfw">
+                        href="{{ theme_option('twitter') }}?ref_src=twsrc%5Etfw">
                             آخر التغريدات
                         </a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-
-                    <div class="widget subscribe-widget">
-                        {!! do_shortcode('[subscribe-form][/subscribe-form]') !!}
                     </div>
 
                 </div>
