@@ -4,10 +4,11 @@
     $latest_articles_top = Botble\Blog\Models\Post::getLatestNews(4);
 ?>
 
+
 @endif
-<div class="container" class="active">
+<div class="container hero-slider">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="news-holder">
 
                 <div class="news-preview">
@@ -24,7 +25,7 @@
                                     <li><i class="fa fa-user"></i><a
                                                 href="/articles/{{ $slide->researcher->id }}">{{ $slide->researcher->getName() }}</a>
                                     </li>
-                                    <li><i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($slide->published_at)) }}
+                                    <li style="color:#999;"><i class="fa fa-clock-o"></i> {{ time_elapsed_string( $slide->published_at) }}
                                     </li>
                                     <!-- <li><i class="fa fa-eye"></i>{{ $slide->views }}</li> -->
                                 </ul>
@@ -37,14 +38,14 @@
                 <div class="news-headlines">
                     <ul class="">
                         @foreach($slider as $slide)
-                            <li class="@if ($slide == reset($slider )) selected @endif ">{{$slide->name}}</li>
+                            <li class="@if($loop->first) selected @endif ">{{$slide->name}}</li>
                         @endforeach
                     </ul>
                 </div>
 
             </div>
         </div>
-        <div class="col-md-5 pd-5">
+        <div class="col-md-6 pd-5">
             @foreach($latest_articles_top as $slide)
                 <div class="col-md-6 news-post standard-post">
                     <div class="standard-post-box">
@@ -52,6 +53,14 @@
                             <img src="{{ RvMedia::getImageUrl($slide->image,'item_post' ) }}" alt="">
                         </div>
                         <div class="post-content">
+                            <div class="hero-info">
+                                <div class="category">
+                                    {{ $slide->categories->last()->name }}
+                                </div>
+                                <div class="date">
+                                    {{ time_elapsed_string( $slide->published_at) }}
+                                </div>
+                            </div>
                             <h2><a href="{{$slide->url}}">{{$slide->name}}</a></h2>
 
                         </div>
@@ -61,6 +70,7 @@
             @endforeach
         </div>
     </div>
+
 </div>
 <!-- .news-holder -->
 

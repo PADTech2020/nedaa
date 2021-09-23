@@ -445,7 +445,45 @@ function GetYoutubeID($url){
     if(isset($my_array_of_vars['v']))
         return $my_array_of_vars['v'];
 }
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
 
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'سنة',
+        'm' => 'شهر',
+        'w' => 'اسبوع',
+        'd' => 'يوم',
+        'h' => 'ساعة',
+        'i' => 'دقيقة',
+        's' => 'ثانية',
+    );
+    $string_p = array(
+        'y' => 'سنوات',
+        'm' => 'اشهر',
+        'w' => 'اسابيع',
+        'd' => 'ايام',
+        'h' => 'ساعات',
+        'i' => 'دقائق',
+        's' => 'ثوان',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k ) {
+            if(isset($string_p[$diff->$k]))
+            $v =  ' ' . $v . (($diff->$k > 1 && ($diff->$k <= 10 ))? $string_p[$diff->$k] : '');
+            else $v = $diff->$k . ' ' . $v . (($diff->$k > 1 && ($diff->$k <= 10 ))? '' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? ' منذ '.implode(', ', $string)  : 'الآن';
+}
 RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 450);
 RvMedia::addSize('list_main', 400, 225)->addSize('list_main', 400, 225);
 RvMedia::addSize('item_post', 312, 176)->addSize('item_post', 312, 176);

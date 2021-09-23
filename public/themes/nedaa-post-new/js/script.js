@@ -1,5 +1,15 @@
 $(function () {
     "use strict";
+    $('.header_links_item.trends').click(function () {
+        $('.ticker-news.trends').show();
+        $('.ticker-news.breakingNews').hide();
+    });
+    $('.header_links_item.latest').click(function () {
+        $('.ticker-news.trends').hide();
+        $('.ticker-news.breakingNews').show();
+    });
+
+
     $('.post-small-youtube').click(function () {
         var YID=$(this).attr('data-yid');
         $('#main-vid').attr('src','https://www.youtube.com/embed/'+YID)
@@ -46,7 +56,7 @@ $(function () {
     // that the news item sizes are measured correctly
     // (i.e. not in mid-animation)
     // Also, appending the highlight item to keep HTML clean
-    newsList.append('<li class="highlight nh-anim"></li>');
+    //newsList.append('<li class="highlight nh-anim"></li>');
     hl = $('.highlight');
     newsListItems.addClass('nh-anim');
 
@@ -66,11 +76,15 @@ $(function () {
     function doTimedSwitch() {
 
         myTimer = setInterval(function () {
-            if (($('.selected').prev().index() + 1) === elCount) {
-                firstNewsItem.trigger('click');
+            console.log(speed+'-time-'+$('.selected').next().index());
+            if (($('.selected').next().index()) > 4 || $('.selected').next().index()==-1)  {
+
+                $('.news-headlines li:nth-child(1)').trigger('click');
+
             } else {
-                $('.selected').next(':not(.highlight)').trigger('click');
+                $('.selected').next().trigger('click');
             }
+
         }, speed);
 
     }
@@ -128,4 +142,5 @@ $(function () {
     doClickItem();
     doWindowResize();
     $('.selected').trigger('click');
+    doTimedSwitch();
 });

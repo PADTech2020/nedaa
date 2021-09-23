@@ -137,7 +137,8 @@
 <script type="text/javascript" src="/themes/nedaa-post/js/jquery.imagesloaded.min.js"></script>
 <script type="text/javascript" src="/themes/nedaa-post/js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="/themes/nedaa-post/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/themes/nedaa-post/js/script2.js"></script>
+<script type="text/javascript" src="/themes/nedaa-post-new/js/script2.js?v=<?php $date = new \DateTime('now');
+echo $date->format('d.G.i'); ?>"></script>
 <script type="text/javascript" src="/themes/nedaa-post/js/custom.js"></script>
 
 <!--[if lt IE 9]>

@@ -151,6 +151,19 @@ $(document).ready(function (e) {
     } catch (e) {
     }
     try {
+        e("#js-news-trends").ticker({
+            speed: .2,
+            controls: !0,
+            titleText: "",
+            displayType: "reveal",
+            direction: "ltr",
+            pauseOnItems: 2e3,
+            fadeInSpeed: 600,
+            fadeOutSpeed: 300
+        })
+    } catch (e) {
+    }
+    try {
         var r = e(".owl-wrapper");
         r.length > 0 && jQuery().owlCarousel && r.each(function () {
             var o, t, i = e(this).find(".owl-carousel"), a = e(this).find(".owl-carousel").attr("data-num");

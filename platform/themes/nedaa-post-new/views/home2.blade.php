@@ -149,7 +149,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                         <h2><a href="{{$post->url}}">{{$post->name}}</a></h2>
                                                         <ul class="post-tags">
                                                             <li>
-                                                                <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                                <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -231,7 +231,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -251,7 +251,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -274,7 +274,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{ $post->name }}</a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -325,7 +325,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                 <h2>{{ $post->name }}</h2>
                                                 <ul class="post-tags">
                                                     <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -357,7 +357,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -382,7 +382,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -826,7 +826,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1096,7 +1096,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1122,7 +1122,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1342,7 +1342,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                     <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
                                                     <ul class="post-tags">
                                                         <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                            <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1424,7 +1424,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                 <h2>{{ $post->name }}</h2>
                                                 <ul class="post-tags">
                                                     <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1452,7 +1452,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                                 <h2>{{ $post->name }}</h2>
                                                 <ul class="post-tags">
                                                     <li>
-                                                        <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
+                                                        <i class="fa fa-clock-o"></i>{{ time_elapsed_string( $post->published_at) }}
                                                     </li>
                                                 </ul>
                                             </div>
