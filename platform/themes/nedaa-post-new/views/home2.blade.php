@@ -13,6 +13,7 @@ $ra2i = \Botble\Blog\Models\Post::getAllPostsByCategory(73, 15);
 $helth = \Botble\Blog\Models\Post::getAllPostsByCategory(82, 4);
 $cinema = \Botble\Blog\Models\Post::getAllPostsByCategory(86, 4);
 $mjtama3 = \Botble\Blog\Models\Post::getAllPostsByCategory(87, 4);
+$politic_converseation = \Botble\Blog\Models\Post::getAllPostsByCategory(151, 5);
 $books = \Botble\Blog\Models\Post::getAllPostsByCategory(149, 2);
 $texts = \Botble\Blog\Models\Post::getAllPostsByCategory(148, 2);
 
@@ -23,7 +24,7 @@ $turath = \Botble\Blog\Models\Post::getAllPostsByCategory(153, 5);// not used
 
 
 
-$sport = \Botble\Blog\Models\Post::getAllPostsByCategory(75, 4);
+$sport = \Botble\Blog\Models\Post::getAllPostsByCategory(75, 6);
 
 $vid = \Botble\Blog\Models\Post::getAllPostsByCategory(89, 6);
 
@@ -317,7 +318,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-4">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                      alt="{{ $post->name }}">
                                             </div>
                                             <div class="post-content">
@@ -425,7 +426,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($international[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($international[0]->image, 'list_main') }}"
                                                      alt="{{$international[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$international[0]->name}}</h3>
@@ -460,7 +461,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($middle_east[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($middle_east[0]->image, 'list_main') }}"
                                                      alt="{{$post->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$middle_east[0]->name}}</h3>
@@ -498,7 +499,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($files[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($files[0]->image, 'list_main') }}"
                                                      alt="{{$files[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$files[0]->name}}</h3>
@@ -697,7 +698,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($helth[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($helth[0]->image, 'list_main') }}"
                                                      alt="{{$helth[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$helth[0]->name}}</h3>
@@ -734,7 +735,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($cinema[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($cinema[0]->image, 'list_main') }}"
                                                      alt="{{$post->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$cinema[0]->name}}</h3>
@@ -775,7 +776,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($mjtama3[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($mjtama3[0]->image, 'list_main') }}"
                                                      alt="">
                                                 <div class="rate-level">
                                                     <h3>{{$mjtama3[0]->name}}</h3>
@@ -813,37 +814,11 @@ $meta->addProperty('site-name', 'نداء بوست');
                                 <div>
                                     <div class="title-section">
                                         <h1>
-                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(149)}}</span>
+                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(151)}}</span>
                                         </h1>
                                     </div>
                                     <ul class="list-posts">
-                                        @foreach($books as $post)
-                                            <li>
-                                                <a href="{{$post->url}}"><img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
-                                                     alt="{{$post->name}}"></a>
-                                                <div class="post-content">
-                                                    <h2><a href="{{$post->url}}">{{$post->name}} </a></h2>
-                                                    <ul class="post-tags">
-                                                        <li>
-                                                            <i class="fa fa-clock-o"></i>{{ date('Y/m/d', strtotime($post->published_at)) }}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="widget tags-widget">
-                                <div>
-                                    <div class="title-section">
-                                        <h1>
-                                            <span>{{\Botble\Blog\Models\Category::getCategoryNameCurrentLang(148)}}</span>
-                                        </h1>
-                                    </div>
-                                    <ul class="list-posts">
-                                        @foreach($texts as $post)
+                                        @foreach($politic_converseation as $post)
                                             <li>
                                                 <a href="{{$post->url}}"><img src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
                                                      alt="{{$post->name}}"></a>
@@ -889,7 +864,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                 @if(count($economy)>0)
                                     @foreach($economy as $post)
                                         <div class="uk-grid uk-grid-medium col-md-3">
-                                            <a href="{{ $post->url }}"><img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                            <a href="{{ $post->url }}"><img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                  alt="{{$post->name}}"></a>
                                             <div class="uk-width-1-4@m">
                                                 <div class="uk-card uk-card-default uk-card-body uk-background-cover card-hover news-cards">
@@ -922,7 +897,6 @@ $meta->addProperty('site-name', 'نداء بوست');
             <div class="row">
                 <?php $sport_post = $sport[0];?>
                 @if($sport_post)
-
                     <div class="post post-dark col-lg-7 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
@@ -940,7 +914,6 @@ $meta->addProperty('site-name', 'نداء بوست');
 
                         </div>
                     </div>
-
                 @endif
 
                 <div class="col-lg-5 col-12 mb-20">
@@ -957,13 +930,11 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="sport-small-item">
                                         <!-- Image -->
                                         <img style="width:100%;"
-                                             src="{{ RvMedia::getImageUrl($video_post_small->image, $loop->first ? 'item_post' : 'slider_big') }}"
+                                             src="{{ RvMedia::getImageUrl($video_post_small->image, $loop->first ? 'item_post' : 'list_main') }}"
                                              alt="post">
                                         <span>{{ $video_post_small->categories->last()->name }}</span>
                                         <div class="content">
-
                                             {{$video_post_small->name}}
-
                                         </div>
                                     </div>
 
@@ -999,7 +970,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($scienceandtechnology[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($scienceandtechnology[0]->image, 'list_main') }}"
                                                      alt="{{$scienceandtechnology[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$scienceandtechnology[0]->name}}</h3>
@@ -1036,7 +1007,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($art[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($art[0]->image, 'list_main') }}"
                                                      alt="{{$post->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$art[0]->name}}</h3>
@@ -1076,7 +1047,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($investigations[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($investigations[0]->image, 'list_main') }}"
                                                      alt="">
                                                 <div class="rate-level">
                                                     <h3>{{$investigations[0]->name}}</h3>
@@ -1192,10 +1163,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
-                                    <h3>
-                                        {{$post->name}}
-                                    </h3>
-                                    <p> {{$post->description}}</p>
+                                    <a href="{{$post->url}}"><h3>{{$post->name}}</h3></a>
                                 </div>
                             </div>
 
@@ -1213,10 +1181,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
-                                    <h3>
-                                        {{$post->name}}
-                                    </h3>
-                                    <p> {{$post->description}}</p>
+                                    <a href="{{$post->url}}"><h3>{{$post->name}}</h3></a>
                                 </div>
                             </div>
                         </div>
@@ -1249,7 +1214,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($discover[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($discover[0]->image, 'list_main') }}"
                                                      alt="{{$discover[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$discover[0]->name}}</h3>
@@ -1286,7 +1251,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($social[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($social[0]->image, 'list_main') }}"
                                                      alt="{{$social[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$social[0]->name}}</h3>
@@ -1326,7 +1291,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-12">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($dialogues[0]->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($dialogues[0]->image, 'list_main') }}"
                                                      alt="{{$dialogues[0]->name}}">
                                                 <div class="rate-level">
                                                     <h3>{{$dialogues[0]->name}}</h3>
@@ -1412,10 +1377,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                     <div class="post post-dark col-lg-3 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
-                                <div class="content border">
-                                <a href="{{$post->url}}"><h4>{{$post->name}}</h4></a>
-                                </div>
-                                <a href="{{$post->url}}"><img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"/></a>
+                                <a href="{{$post->url}}"><img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"/></a>
                                 <div class="content">
                                     <div class="date"><span
                                                 class="day">{{ date('d', strtotime($post->published_at))}} </span><span
@@ -1455,7 +1417,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-6">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                      alt="{{ $post->name }}">
                                             </div>
                                             <div class="post-content">
@@ -1483,7 +1445,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                     <div class="col-md-6">
                                         <div class="news-post standard-post">
                                             <div class="post-gallery">
-                                                <img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                      alt="{{ $post->name }}">
                                             </div>
                                             <div class="post-content">
@@ -1531,7 +1493,7 @@ $meta->addProperty('site-name', 'نداء بوست');
                                 <div class="col-md-6">
                                     <div class="news-post image-post2">
                                         <div class="post-gallery">
-                                            <img src="{{ RvMedia::getImageUrl($post->image,'slider_big') }}" alt="{{$post->name}}">
+                                            <img src="{{ RvMedia::getImageUrl($post->image,'list_main') }}" alt="{{$post->name}}">
                                             <div class="hover-box">
                                                 <div class="inner-hover">
                                                     <a class="category-post" href="{{$post->categories->last()->url}}">{{$post->categories->last()->name}}</a>
@@ -1551,7 +1513,7 @@ $meta->addProperty('site-name', 'نداء بوست');
 
                                     <div class="news-post image-post2">
                                         <div class="post-gallery">
-                                            <img src="{{ RvMedia::getImageUrl($post->image,'slider_big') }}" alt="">
+                                            <img src="{{ RvMedia::getImageUrl($post->image,'list_main') }}" alt="">
                                             <div class="hover-box">
                                                 <div class="inner-hover">
                                                     <a class="category-post" href="{{$post->categories->last()->url}}">{{$post->categories->last()->name}}</a>

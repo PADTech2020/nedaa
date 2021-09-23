@@ -1,19 +1,4 @@
-<?php
-$breakingNews = \Botble\Blog\Models\Post::getBreakingNews(3);
-
-$tw_username = substr(strrchr(theme_option('twitter'), "/"), 1);
-
-// $data = file_get_contents('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=' . $tw_username);
-// $parsed = json_decode($data, true);
-// $tw_followers = '';
-// if (isset($parsed[0]))
-//     $tw_followers = $parsed[0]['followers_count'];
-
-
-$tw_followers = ''
-?>
-
-        <!-- انفوغرافيك -->
+@if(count($posts))
 <section class="block-wrapper new-dark-style">
     <div class="container">
         <!-- block content -->
@@ -22,9 +7,8 @@ $tw_followers = ''
                 <h1><span>{{ $category->name }}</span></h1>
             </div>
             <div class="row">
+                @if(isset($posts[0]))
                 <?php $post = $posts[0];?>
-                @if($post)
-
                     <div class="post post-dark col-lg-6 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
@@ -32,9 +16,9 @@ $tw_followers = ''
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
-                                    <h3>
+                                    <a href="{{$post->url}}"><h3>
                                         {{$post->name}}
-                                    </h3>
+                                    </h3></a>
                                     <p> {{$post->description}}</p>
                                 </div>
                             </div>
@@ -44,8 +28,8 @@ $tw_followers = ''
                     </div>
 
                 @endif
+                @if(isset($posts[1]))
                 <?php $post = $posts[1];?>
-                @if($post)
                     <div class="post post-dark col-lg-6 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
@@ -53,9 +37,9 @@ $tw_followers = ''
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
-                                    <h3>
+                                    <a href="{{$post->url}}"><h3>
                                         {{$post->name}}
-                                    </h3>
+                                    </h3></a>
                                     <p> {{$post->description}}</p>
                                 </div>
                             </div>
@@ -68,31 +52,27 @@ $tw_followers = ''
     </div>
     </div>
 </section>
+@endif
 
-<!-- سوريا -->
 <section class="block-wrapper non-sidebar sky-news">
     <div class="container">
-
         <!-- block content -->
         <div class="block-content non-sidebar">
-
             <!-- grid-box -->
             <div class="grid-box">
                 <div class="row">
                     <div class="col-md-9">
-
                         <div class="title-section">
                             <h1><span>{{ $category->name }}</span></h1>
                         </div>
                         @if(count($posts))
                             <div class="row">
-
                                 @foreach($posts as $post)
                                     <a href="{{ $post->url }}">
                                         <div class="col-md-4">
                                             <div class="news-post standard-post">
                                                 <div class="post-gallery">
-                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}"
+                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                          alt="{{ $post->name }}">
                                                 </div>
                                                 <div class="post-content">
@@ -107,8 +87,6 @@ $tw_followers = ''
                                         </div>
                                     </a>
                                 @endforeach
-
-
                             </div> <div class="pagination-box">
                                 {!! $posts->links() !!}
                             </div>
@@ -118,7 +96,6 @@ $tw_followers = ''
                             </div>
                         @endif
                     </div>
-
                     <div class="col-md-3">
                         <!-- sidebar -->
                         <div class="sidebar">
@@ -179,13 +156,10 @@ $tw_followers = ''
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- End grid-box -->
-
     </div>
     <!-- End block content -->
-
     </div>
 </section>
 

@@ -445,10 +445,9 @@ function GetYoutubeID($url){
     if(isset($my_array_of_vars['v']))
         return $my_array_of_vars['v'];
 }
-RvMedia::addSize('slider_big', 580, 390)->addSize('slider_big', 580, 390);
+
 RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 450);
 RvMedia::addSize('list_main', 400, 225)->addSize('list_main', 400, 225);
-RvMedia::addSize('post_main', 650, 366)->addSize('post_main', 650, 366);
 RvMedia::addSize('item_post', 312, 176)->addSize('item_post', 312, 176);
 RvMedia::addSize('under_post', 270, 200)->addSize('under_post', 270, 200);
 RvMedia::addSize('side_bar', 80, 70)->addSize('side_bar', 80, 70);

@@ -186,7 +186,6 @@
                 <!-- sidebar -->
                 <div class="sidebar large-sidebar">
                     {!! do_shortcode('[author-box id="'.$post->researcher->id.'"][/author-box]') !!}
-
                 </div>
                 <!-- End sidebar -->
 

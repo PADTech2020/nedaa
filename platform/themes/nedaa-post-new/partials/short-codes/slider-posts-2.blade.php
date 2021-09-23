@@ -1,13 +1,8 @@
 @if (is_plugin_active('blog'))
-    <?php
-
-
+<?php
     $slider = Botble\Blog\Models\Post::getSlider(5);
-
     $latest_articles_top = Botble\Blog\Models\Post::getLatestNews(4);
-
-
-    ?>
+?>
 
 @endif
 <div class="container" class="active">
@@ -19,7 +14,7 @@
 
                     @foreach($slider as $slide)
                         <div class="news-content @if($loop->first) top-content @endif">
-                            <img src="{{ RvMedia::getImageUrl($slide->image,'post_main' ) }}">
+                            <img src="{{ RvMedia::getImageUrl($slide->image,'post_big_main' ) }}">
                             <div class="resume">
                                 <a href="{{$slide->url}}" class="title">{{$slide->name}}</a>
                                 <ul class="post-tags">

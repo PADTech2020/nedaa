@@ -14,10 +14,10 @@ $r_posts = Botble\Blog\Models\Post::join("language_meta", function ($join) {
 <div id="author-box" class="author-box single-post-box">
     <div class="about-more-autor">
         <div class="autor-box authorbox">
-            <img src="{{ get_object_image( $researcher->image, 'thumb') }}" alt="{{ $researcher->name }}">
+            <a href="/articles/{{ $researcher->id }}"><img src="{{ get_object_image( $researcher->image, 'thumb') }}" alt="{{ $researcher->name }}"></a>
             <div class="autor-content">
                 <div class="autor-title">
-                    <h1>{{ $researcher->getName() }}</h1>
+                <a href="/articles/{{ $researcher->id }}"><h1>{{ $researcher->getName() }}</h1></a>
                     <ul class="autor-social">
                         <li><a href="{{ $researcher->facebook }}" class="facebook"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="{{ $researcher->twitter }}" class="twitter"><i class="fa fa-twitter"></i></a></li>
@@ -41,7 +41,7 @@ $r_posts = Botble\Blog\Models\Post::join("language_meta", function ($join) {
 
                 <div class="col-sm-12 autor-box authorbox">
                     <div class="post-gallery">
-                        <img alt="{{ $post->name }}" src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}">
+                        <a href="{{ $post->url }}"><img alt="{{ $post->name }}" src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"></a>
                         <a class="category-post world" href="{{$post->categories->first()->url}}">{{$post->categories->first()->name}}</a>
                     </div>
                     <div class="post-content">
