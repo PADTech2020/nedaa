@@ -343,7 +343,7 @@ a.title:hover {
 
 .col-md-6.news-post.standard-post .standard-post-box {
     margin: 0 5px 10px;
-    padding: 0 5px 5px;
+    padding: 0 0px 0px;
     text-decoration: none;
     color: inherit;
     display: block;
@@ -1108,6 +1108,15 @@ footer .header_links {
     font-size: 8px;
     padding: 5px;
 }
+
+.single-post-box .post-tags-box ul.tags-box li i {
+    color: #ac0000;
+}
+
+/* .col-md-4, .col-md-3{
+    padding-right: 5px;
+    padding-left: 5px;
+} */
 
 @media (max-width: 600px) {
 

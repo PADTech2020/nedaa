@@ -12,7 +12,7 @@
                     <div class="post post-dark col-lg-6 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
-                                <a href="{{$post->url}}"><img
+                                <a href="{{$post->url}}"><img style="height: 385px;"
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
@@ -33,7 +33,7 @@
                     <div class="post post-dark col-lg-6 col-12 mb-20">
                         <div class="post-wrap">
                             <div id="dark-main-img" class="">
-                                <a href="{{$post->url}}"><img
+                                <a href="{{$post->url}}"><img style="height: 385px;"
                                             src="{{ RvMedia::getImageUrl($post->image , 'post_big_main' ) }}"
                                     /></a>
                                 <div class="content">
@@ -72,7 +72,7 @@
                                         <div class="col-md-4">
                                             <div class="news-post standard-post">
                                                 <div class="post-gallery">
-                                                    <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
+                                                    <img style="height: 225px;" src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
                                                          alt="{{ $post->name }}">
                                                 </div>
                                                 <div class="post-content">

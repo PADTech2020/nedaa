@@ -703,11 +703,11 @@ a.copy-link {
 
 @media screen and (max-width: 1920px) {
     .image-slider img.main-img {
-        height: 380px;
+        /* height: 380px; */
     }
 
     .heading-news-box img {
-        height: 186px;
+        /* height: 186px; */
     }
 }
 
