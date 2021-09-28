@@ -642,7 +642,7 @@ figure.snip1253.hover img {
 }
 
 .new-dark-style .title-section h1 {
-    color: #ffffff;
+    color: #000000;
 }
 
 .post-small-youtube .content span {
@@ -990,11 +990,11 @@ footer .header_links {
 .title-post.new-dark-style {
     margin-top: 10px;
     padding-top: 15px;
-
+    background-color: #fff!important;
 }
 
 .title-post.new-dark-style h1 {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 .single-post-box .about-more-autor .autor-box {
@@ -1024,7 +1024,7 @@ footer .header_links {
 }
 
 .single-post-box ul.post-tags li, .single-post-box ul.post-tags li a {
-    color: #fff;
+    color: #000000;
 }
 
 #loaded-post .single-post-box ul.post-tags li, #loaded-post .single-post-box ul.post-tags li a {
