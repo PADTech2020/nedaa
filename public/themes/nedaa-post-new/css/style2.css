@@ -3526,9 +3526,6 @@ ul.post-tags li a:hover {
     color: #ac0000;
 }
 
-ul.post-tags li:last-child {
-    margin-right: 0;
-}
 
 .standard-post {
     transition: all 0.2s ease-in-out;
@@ -4859,8 +4856,8 @@ div.list-post .post-content h2 a:hover {
 
 .single-post-box .post-tags-box ul.tags-box li {
     display: inline-block;
-    color: #666;
-    font-size: 13px;
+    color: #ac0000;
+    font-size: 16px;
     font-family: Cairo, sans-serif;
     margin-right: 3px;
     margin-bottom: 2px;
@@ -4889,13 +4886,13 @@ div.list-post .post-content h2 a:hover {
     -moz-border-radius: 2px;
     -o-border-radius: 2px;
     border-radius: 2px;
-    color: #999;
-    font-size: 12px;
+    color: #333;
+    font-size: 14px;
     font-family: Cairo, sans-serif;
 }
 
 .single-post-box .post-tags-box ul.tags-box li a:hover {
-    background: #222;
+    background: #063e7b;
     border: 1px solid #222;
     color: #fff;
 }
@@ -7856,21 +7853,16 @@ ul.demo-list li a i {
     max-width: 600px !important;
 }
 
-.single-post-box iframe {
-    min-height: 850px;
-}
 
 #app .r-vakc41 {
     max-width: 600px !important;
     border: 0 !important;
     display: inline-block;
     width: 100%;
-    height: 600px;
     padding: 0;
     border: none;
     max-width: 100%;
     min-width: 180px;
-    min-height: 200px;
 }
 
 .single-post-box p:last-child {
@@ -8159,7 +8151,7 @@ div.rate-level p span {
 } */
 
 .sky-news .post-content{
-    min-height: 90px;
+    min-height: 100px;
 }
 
 .sky-news .col-md-4{

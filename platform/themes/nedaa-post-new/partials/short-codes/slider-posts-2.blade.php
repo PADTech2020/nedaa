@@ -82,11 +82,11 @@
 
         <div class="iso-call heading-news-box">
 
-            <div class="news-post image-post default-size">
+            <div id="f-img-slider" class="news-post image-post default-size">
                 <img src="{{ RvMedia::getImageUrl($latest_articles_top[0]->image,'list_main' ) }}" alt="{{ $latest_articles_top[0]->name }}">
                 <div class="hover-box">
+                    <a class="category-post" href="{{ $latest_articles_top[0]->categories->last()->url }}">{{ $latest_articles_top[0]->categories->last()->name }}</a>
                     <div class="inner-hover">
-                                    <a class="category-post" href="{{ $latest_articles_top[0]->categories->last()->url }}">{{ $latest_articles_top[0]->categories->last()->name }}</a>
                         <h2><a href="{{ $latest_articles_top[0]->url }}">{{ $latest_articles_top[0]->name }}</a></h2>
                         <ul class="post-tags">
                             <li><i class="fa fa-clock-o"></i><span>{{ time_elapsed_string( $latest_articles_top[0]->published_at) }}</span></li>
@@ -102,11 +102,11 @@
                 @foreach($slider as $slide)
                     <li>
                         <div class="news-post image-post">
-                            <img src="{{ RvMedia::getImageUrl($slide->image ) }}" alt="">
+                            <img src="{{ RvMedia::getImageUrl($slide->image,'post_big_main' ) }}" alt="">
                             <div class="hover-box">
                                 <div class="inner-hover">
                                     <a class="category-post" href="{{ $slide->categories->last()->url }}">{{ $slide->categories->last()->name }}</a>
-                                    <h2><a href="single-post.html">{{ $slide->name }}</a></h2>
+                                    <h2><a href="{{ $slide->url }}">{{ $slide->name }}</a></h2>
                                     <ul class="post-tags">
                                         <li><i class="fa fa-clock-o"></i>{{ time_elapsed_string( $slide->published_at) }}</li>
                                     </ul>
@@ -121,8 +121,8 @@
             <div class="news-post image-post default-size">
                 <img src="{{ RvMedia::getImageUrl($latest_articles_top[1]->image,'list_main' ) }}" alt="{{ $latest_articles_top[1]->name }}">
                 <div class="hover-box">
+                    <a class="category-post" href="{{ $latest_articles_top[1]->categories->last()->url }}">{{ $latest_articles_top[1]->categories->last()->name }}</a>
                     <div class="inner-hover">
-                                    <a class="category-post" href="{{ $latest_articles_top[1]->categories->last()->url }}">{{ $latest_articles_top[1]->categories->last()->name }}</a>
                         <h2><a href="{{ $latest_articles_top[1]->url }}">{{ $latest_articles_top[1]->name }}</a></h2>
                         <ul class="post-tags">
                             <li><i class="fa fa-clock-o"></i><span>{{ time_elapsed_string( $latest_articles_top[1]->published_at) }}</span></li>
@@ -135,8 +135,8 @@
             <div class="news-post image-post default-size">
                 <img src="{{ RvMedia::getImageUrl($latest_articles_top[2]->image,'list_main' ) }}" alt="{{ $latest_articles_top[2]->name }}">
                 <div class="hover-box">
+                    <a class="category-post" href="{{ $latest_articles_top[2]->categories->last()->url }}">{{ $latest_articles_top[2]->categories->last()->name }}</a>
                     <div class="inner-hover">
-                                    <a class="category-post" href="{{ $latest_articles_top[2]->categories->last()->url }}">{{ $latest_articles_top[2]->categories->last()->name }}</a>
                         <h2><a href="{{ $latest_articles_top[2]->url }}">{{ $latest_articles_top[2]->name }}</a></h2>
                         <ul class="post-tags">
                             <li><i class="fa fa-clock-o"></i><span>{{ time_elapsed_string( $latest_articles_top[2]->published_at) }}</span></li>
@@ -149,8 +149,8 @@
             <div class="news-post image-post default-size">
                 <img src="{{ RvMedia::getImageUrl($latest_articles_top[3]->image,'list_main' ) }}" alt="{{ $latest_articles_top[3]->name }}">
                 <div class="hover-box">
+                    <a class="category-post" href="{{ $latest_articles_top[3]->categories->last()->url }}">{{ $latest_articles_top[3]->categories->last()->name }}</a>
                     <div class="inner-hover">
-                                    <a class="category-post" href="{{ $latest_articles_top[3]->categories->last()->url }}">{{ $latest_articles_top[3]->categories->last()->name }}</a>
                         <h2><a href="{{ $latest_articles_top[3]->url }}">{{ $latest_articles_top[3]->name }}</a></h2>
                         <ul class="post-tags">
                             <li><i class="fa fa-clock-o"></i><span>{{ time_elapsed_string( $latest_articles_top[3]->published_at) }}</span></li>

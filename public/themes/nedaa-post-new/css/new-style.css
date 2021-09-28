@@ -1,6 +1,6 @@
 .new-version .top-line {
     width: 100%;
-    background: #232323;
+    background: #063e7b;
     padding: 0 20px;
     min-height: 40px;
 }
@@ -127,7 +127,8 @@ li.header_links_item.trends {
 .image-post .hover-box .inner-hover h2 {
 
     line-height: 22px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .top-line ul.social-icons {
@@ -616,7 +617,7 @@ figure.snip1253.hover img {
 }
 
 .new-dark-style {
-    background-color: #232323 !important;
+    background-color: #063e7b  !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -659,7 +660,7 @@ figure.snip1253.hover img {
 .post-small-sport .sport-small-item .content {
     color: #ffffff;
     padding: 5px;
-    min-height: 40px;
+    min-height: 60px;
 }
 
 .sport-small-item span {
@@ -874,7 +875,7 @@ body {
 }
 
 footer {
-    background: #222;
+    background: #063e7b;
 }
 
 footer .widget h1 {
@@ -1021,8 +1022,7 @@ footer .header_links {
 
 .single-post-box .post-tags-box ul.tags-box li a:hover {
     border: 1px solid #222;
-    color: #ac0000;
-    font-weight: bold;
+    color: #f5f8f8;
 }
 
 .author-box-posts .post-content {
@@ -1041,6 +1041,12 @@ footer .header_links {
     margin-right: 7px;
 }
 
+.single-post-box{
+    border-bottom: 7px solid #063e7b;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+}
+    
 .article-post {
     margin-bottom: 0px;
 }
@@ -1108,15 +1114,44 @@ footer .header_links {
     font-size: 8px;
     padding: 5px;
 }
-
+.news-cards p a {
+    color: #ffffff;
+    text-align: right;
+    font-size: 14px;
+    padding: 0em;
+}
+.block-wrapper.block-3 .col-md-9 .col-md-4{
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.block-wrapper.block-4 .col-md-3,.block-wrapper.block-4 .col-lg-3{
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.block-wrapper.block-2 .col-md-6{
+    padding-right: 8px;
+    padding-left: 8px;
+}
 .single-post-box .post-tags-box ul.tags-box li i {
-    color: #ac0000;
+color: #ac0000;
+}
+.title-section.m-r-7{
+    margin-right: -7px;
+}
+/* .col-md-4, .col-md-3{
+padding-right: 5px;
+padding-left: 5px;
+} */
+
+.navbar-nav > li > a.nedaa:before {
+    background: #063e7b;
 }
 
-/* .col-md-4, .col-md-3{
-    padding-right: 5px;
-    padding-left: 5px;
-} */
+.iso-call a.category-post {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
 
 @media (max-width: 600px) {
 
