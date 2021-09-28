@@ -622,20 +622,32 @@ $meta->addProperty('site-name', 'نداء بوست');
                             <div class="uk-container row">
                                 @if(count($economy)>0)
                                     @foreach($economy as $post)
-                                        <div class="uk-grid uk-grid-medium col-md-3">
-                                            <a href="{{ $post->url }}"><img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
-                                                 alt="{{$post->name}}"></a>
-                                            <div class="uk-width-1-4@m">
-                                                <div class="uk-card uk-card-default uk-card-body uk-background-cover card-hover news-cards">
-                                                    <div class="uk-card-body-small news-text-bck uk-position-bottom"
-                                                         style="box-sizing: border-box;">
-                                                        <p class="uk-light uk-padding-small uk-padding-remove-bottom uk-margin-remove-bottom">
-                                                            <a href="{{ $post->url }}">{{Str::words($post->name, '10')}}</a></p>
-                                                        <p class="uk-text-small subtitle-text-block uk-light uk-margin-remove-top">{{$post->description}}</p>
-                                                    </div>
+
+                                        <div class="news-post standard-post col-md-3">
+                                            <a href="{{ $post->url }}">
+                                            <div class="post-gallery">
+                                                <img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"
+                                                     alt="{{$post->name}}">
+                                                <div class="rate-level">
+                                                    <h3> {{Str::words($post->name, '10')}}</h3>
                                                 </div>
-                                            </div>
+                                            </div></a>
                                         </div>
+
+                                        {{--<div class="uk-grid uk-grid-medium col-md-3">--}}
+                                            {{--<a href="{{ $post->url }}"><img src="{{ RvMedia::getImageUrl($post->image, 'list_main') }}"--}}
+                                                 {{--alt="{{$post->name}}"></a>--}}
+                                            {{--<div class="uk-width-1-4@m">--}}
+                                                {{--<div class="uk-card uk-card-default uk-card-body uk-background-cover card-hover news-cards">--}}
+                                                    {{--<div class="uk-card-body-small news-text-bck uk-position-bottom"--}}
+                                                         {{--style="box-sizing: border-box;">--}}
+                                                        {{--<p class="uk-light uk-padding-small uk-padding-remove-bottom uk-margin-remove-bottom">--}}
+                                                            {{--<a href="{{ $post->url }}">{{Str::words($post->name, '10')}}</a></p>--}}
+                                                        {{--<p class="uk-text-small subtitle-text-block uk-light uk-margin-remove-top">{{$post->description}}</p>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                     @endforeach
                                 @endif
                             </div>

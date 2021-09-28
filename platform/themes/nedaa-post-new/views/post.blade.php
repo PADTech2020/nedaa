@@ -144,15 +144,13 @@
                     </div>
 
 
-                    [auto-reload-posts][/auto-reload-posts]
-                    <!-- End single-post box -->
 
                 </div>
                 <!-- End block content -->
 
             </div>
 
-            
+
             <div class="col-md-3 col-sm-4">
 
                 <!-- sidebar -->

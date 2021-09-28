@@ -5,12 +5,28 @@ $(function () {
             var s_height = $('.col-md-6.post.post-small.post-small-sport img').height();
             $('.col-md-6.post.post-small.post-small-sport img').css('height',s_height + 5);
         }, 5000);
+
+        setTimeout(function () {
+            var s_height = $('.sport-small-item').height();
+            $('#dark-main-img').css('height',(s_height *3)+ 20);
+        }, 5000);
+        setTimeout(function () {
+            var _height=($("#f-img-slider").height()*2)+10;
+            $('.image-slider ul.bxslider li img').css('height',_height+'px');
+
+            // $('.image-slider ul.bxslider li img').css(
+            //     'height',($('.image-slider ul.bxslider li img').width()*170/310)+'px'
+            // );
+
+        }, 4000);
     });
 
 
     //alert("Height of img: " + $("#f-img-slider").height());
-    var _height=$("#f-img-slider").height()+$("#f-img-slider").height()+10;
-    $('ul.bxslider li img').css('height',_height+'px')
+
+
+
+
     $('.header_links_item.trends').click(function () {
         $('.ticker-news.trends').show();
         $('.ticker-news.breakingNews').hide();

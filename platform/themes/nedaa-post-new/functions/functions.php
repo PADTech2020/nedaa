@@ -448,6 +448,16 @@ function GetYoutubeID($url){
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
+
+    $today = time();
+    $interval = $today-strtotime($datetime) ;
+    $days = floor($interval / 86400); // 1 day
+    if($days > 7) {
+        return  date('Y/m/d', strtotime($datetime));
+    }else{
+
+
+
     $diff = $now->diff($ago);
 
     $diff->w = floor($diff->d / 7);
@@ -483,6 +493,7 @@ function time_elapsed_string($datetime, $full = false) {
 
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? ' منذ '.implode(', ', $string)  : 'الآن';
+    }
 }
 RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 450);
 RvMedia::addSize('list_main', 400, 225)->addSize('list_main', 400, 225);

@@ -6,10 +6,10 @@
 }
 
 .header2 .navbar-default {
-    background: url(/themes/nedaa-post-new/images/header_bg_v2.jpg);
+    background: url(https://nedaa-post.com/storage/people-1.png);
     border: none;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    background-size: contain;
 }
 
 .top-line ul.top-line-list li a, .top-line ul.top-line-list li span {
@@ -93,19 +93,25 @@ li.header_links_item {
     width: 80px;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 li.header_links_item.latest {
     background-color: #063e7b;
     color: #fff;
-}
 
+}
+li.header_links_item.latest:hover{
+    background-color: #456b7b;
+}
 li.header_links_item.trends {
 
     background-color: #ac0000;
     color: #fff;
 }
-
+li.header_links_item.trends:hover{
+    background-color: #db1b0f;
+}
 .new-version {
     background-color: #f5f8f8;
 }
@@ -117,11 +123,11 @@ li.header_links_item.trends {
 }
 
 .ticker-news {
-    background: #f5f8f8;
+    background: #ffffff;
 }
 
 .ticker-swipe {
-    background: #f5f8f8;
+    background: #ffffff;
 }
 
 .image-post .hover-box .inner-hover h2 {
@@ -815,11 +821,16 @@ ul.list-posts > li {
 }
 
 .standard-post .post-gallery div.rate-level {
-    right: 10px;
-    bottom: 10px;
+    padding: 5px;
+    bottom: 0px;
     left: 0px;
+    background: -webkit-gradient(left top, left bottom, color-stop(0, rgba(17, 17, 17, 0)), color-stop(10%, rgba(17, 17, 17, 0.1)), color-stop(100%, rgba(17, 17, 17, 0.95)));
+    background: -webkit-linear-gradient(top, rgba(17, 17, 17, 0) 0, rgba(17, 17, 17, 0.1) 10%, rgba(17, 17, 17, 0.95) 100%);
+    width: 100%;
 }
-
+div#dark-main-img {
+    background-color: #2d2d2d;
+}
 .grid-box ul.list-posts {
     margin-top: 20px;
 }
@@ -838,7 +849,7 @@ ul.list-posts > li {
     bottom: 0;
     left: auto;
     height: 5px;
-    width: 100%;
+    width: calc(100% - 15px);
     border-bottom: 5px solid #ac0000;
     z-index: 1;
 }
@@ -1152,7 +1163,27 @@ padding-left: 5px;
     right: 10px;
     position: absolute;
 }
-
+.thumb-box{
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 15%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 15%);
+}
+.thumb-box img{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.image-slider .bx-wrapper .bx-prev {
+    width: 44px;
+    height: 44px;
+}
+.image-slider .bx-wrapper .bx-next {
+    width: 44px;
+    height: 44px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    right: 20px;
+}
 @media (max-width: 600px) {
 
 }
@@ -1200,7 +1231,7 @@ padding-left: 5px;
     }
 
     .container {
-        width: 90%;
+        width: 95%;
     }
 }
 

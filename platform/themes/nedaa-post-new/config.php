@@ -49,11 +49,12 @@ return [
             // $theme->partialComposer('header', function($view) {
             //     $view->with('auth', \Auth::user());
             // });
-
+            $date= new \DateTime('now');
             // You may use this event to set up your assets.
 //          $theme->asset()->usePath()->add('style', 'css/style.css');
             $theme->asset()->usePath()->add('new-style', '/nedaa-post-new/css/new-style.css');
-            $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js');
+            $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js?'.
+           $date->format('d.G.i'));
 
             if (function_exists('shortcode')) {
                 $theme->composer(['index', 'page', 'post'], function (\Botble\Shortcode\View\View $view) {
