@@ -34,7 +34,7 @@
           href="/themes/nedaa-post/css/nedaa-style.css?v=<?php $date = new \DateTime('now');
           echo $date->format('d.G.i'); ?>" media="screen">
 
-
+    <!--test-blaaa-->
     @yield('post-tr')
 
 
@@ -101,7 +101,7 @@
 //
 //}
 //
-setLocale(LC_TIME, $locale);
+
 //?>
 <body @if (class_exists('Language', false) && Language::getCurrentLocaleRTL()) dir="rtl"
       @endif class=" header2 lang-{{ app()->getLocale() }}">
@@ -118,7 +118,7 @@ setLocale(LC_TIME, $locale);
                     <div class="row">
                         <div class="col-md-9">
                             <ul class="top-line-list">
-                                <li><span class="time-now"><a>--{{arabicDate(date())}}</a></span></li>
+                                <li><span class="time-now">{{date("F j, Y")}}</span></li>
                                 <li><span class="time-now"><a
                                                 href="/<?=app()->getLocale()?>/contact-us">{{__('Contact Us')}}</a></span>
                                 </li>

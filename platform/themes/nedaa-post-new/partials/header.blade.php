@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <ul class="top-line-list">
-                                <li><span class="time-now"><a>{{arabicDate(date(" M j, Y"))}}</a></span></li>
+                                <li><span class="time-now"><a>{{arabicDate(date("j M Y"))}}</a></span></li>
                                 <li><span class="time-now"><a
                                                 href="/<?=app()->getLocale()?>/contact-us">{{__('Contact Us')}}</a></span>
                                 </li>
@@ -101,8 +101,6 @@
                                                 class="fa fa-instagram"></i></a></li>
                                 <li><a target="_blank" href="{{ theme_option('telegram') }}" class="telegram"><i
                                                 class="fa fa-telegram"></i></a></li>
-                                <li><a target="_blank" href="{{ theme_option('linkedin') }}" class="linkedin"><i
-                                                class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>

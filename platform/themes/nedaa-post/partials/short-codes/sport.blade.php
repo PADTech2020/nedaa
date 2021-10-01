@@ -35,7 +35,7 @@ $sport_featured= \Botble\Blog\Models\Post::getPostsByCategory(75, 4,1);
 
                         <li>
                             <div class="news-post image-post">
-                                <img class="main-img" src="{{ RvMedia::getImageUrl($post->image, 'slider_big') }}" alt="{{$post->name}}">
+                                <img class="main-img" src="{{ RvMedia::getImageUrl($post->image) }}" alt="{{$post->name}}">
                                 <div class="hover-box">
                                     <div class="inner-hover">
                                         {{--<a class="category-post" href="politics-category.html">Elections</a>--}}

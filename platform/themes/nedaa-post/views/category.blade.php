@@ -37,7 +37,7 @@ $tw_followers = ''
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="post-gallery">
-                                                <img alt="{{$post->name}}" src="{{ RvMedia::getImageUrl($post->image, 'post_main') }}">
+                                                <img alt="{{$post->name}}" src="{{ RvMedia::getImageUrl($post->image) }}">
                                                 <a class="category-post world" href="{{$post->categories->last()->url}}">{{$post->categories->last()->name}}</a>
                                             </div>
                                         </div>

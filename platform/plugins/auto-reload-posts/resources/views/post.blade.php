@@ -1,4 +1,4 @@
-<div class="single-post-box" style="border-bottom: 7px solid #000;
+<div class="single-post-box" style="border-bottom: 2px solid #f2f2f2;
     margin-bottom: 30px;
     padding-bottom: 15px;">
     

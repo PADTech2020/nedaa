@@ -802,6 +802,7 @@ a.copy-link {
 
 .single-post-box iframe,div.embed-responsive {
     position: relative!important;
+    height: 550px !important;
 }
 
 

@@ -187,7 +187,7 @@ theme_option()
         'label' => __('Gallery'),
         'attributes' => [
             'name' => 'gallery_id',
-            'data' => \Botble\Gallery\Models\Gallery::getAll(),
+            'data' => [],//\Botble\Gallery\Models\Gallery::getAll(),
             'value' => null, // default value
             'options' => [
                 'class' => 'form-control',
@@ -418,7 +418,12 @@ add_action('init', function () {
     config(['filesystems.disks.public.root' => public_path('storage')]);
 }, 124);
 
-RvMedia::addSize('slider_big', 580, 390)->addSize('slider_big', 580, 390);
-RvMedia::addSize('post_main', 770, 380)->addSize('post_main', 770, 380);
+
+RvMedia::addSize('post_big_main', 770, 450)->addSize('post_big_main', 770, 450);
+RvMedia::addSize('list_main', 400, 225)->addSize('list_main', 400, 225);
+RvMedia::addSize('item_post', 312, 176)->addSize('item_post', 312, 176);
 RvMedia::addSize('under_post', 270, 200)->addSize('under_post', 270, 200);
 RvMedia::addSize('side_bar', 80, 70)->addSize('side_bar', 80, 70);
+
+
+

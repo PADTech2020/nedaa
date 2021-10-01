@@ -494,8 +494,8 @@ img.sy-img {
 }
 
 .dark-list-posts {
-    background: #222;
-    background-image: linear-gradient(to right bottom, #370a09, #5c1215, #841a1c, #ae2520, #d83222);
+    background: #423e3e;
+    /*background-image: linear-gradient(to right bottom, #370a09, #5c1215, #841a1c, #ae2520, #d83222);*/
 }
 
 .navbar-nav > li > a:after {
@@ -800,10 +800,20 @@ a.copy-link {
 }
 
 .single-post-box iframe,div.embed-responsive {
-    min-height: 400px!important;
     position: relative!important;
+    height: 422px !important;
 }
 
+
+.r-y54riw {
+    min-width: auto;
+    max-width: auto;
+}
+
+.r-vakc41{
+    min-width: auto;
+    max-width: auto;
+}
 
 
 @media screen and (max-width: 600px) {

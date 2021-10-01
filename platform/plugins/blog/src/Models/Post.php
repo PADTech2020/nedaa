@@ -89,7 +89,6 @@ class Post extends BaseModel
         'published_at',
         'caption',
         'short_link',
-        
     ];
 
     /**
@@ -227,6 +226,7 @@ class Post extends BaseModel
             'language_meta.reference_type' => Post::class,
             'language_meta.lang_meta_code' => (app()->getLocale() == 'en') ? 'en_US' : 'ar',
             'posts.status' => BaseStatusEnum::PUBLISHED,
+
         ];
 
         $where['posts.status'] = BaseStatusEnum::PUBLISHED;
