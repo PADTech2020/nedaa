@@ -1,35 +1,6 @@
 $(document).ready(function (e) {
     "use strict";
 
-   
-
-    var popup = document.getElementById('popup-wrapper');
-    var popup2 = document.getElementById('popup-wrapper-2');
-    // popup2.classList.add('show');
-    var btn = document.getElementById("popup-btn");
-    var span = document.getElementById("close");
-
-    $("span.close").click(function () {
-        $("#popup-wrapper-2").removeClass("show");
-    });
-    $("#popup-wrapper-2 span.close").click(function () {
-        $("#popup-wrapper-2").removeClass('show');
-    });
-    $("#close").click(function () {
-        $("#popup-wrapper-2").removeClass('show');
-    });
-    
-    var isshow = localStorage.getItem('isshowPopupTelegram');
-    if (isshow == null) {
-        localStorage.setItem('isshowPopupTelegram', 3);
-        setTimeout(function () {
-            popup.classList.add('show');
-        }, 3500);
-
-        // Show popup here
-
-    }
-
     var ua = navigator.userAgent.toLowerCase();
     if (ua.indexOf('safari') != -1) {
         if (ua.indexOf('chrome') > -1) {
