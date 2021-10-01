@@ -203,7 +203,7 @@ class Post extends BaseModel
 
     public static function getPostsByCategory($cat_id, $limit = 10, $is_featured = 0, array $with = [])
     {
-        $cat_id = \Botble\Blog\Models\Category::getCategoryByLang($cat_id);
+        //$cat_id = \Botble\Blog\Models\Category::getCategoryByLang($cat_id);
         $where = [];
         $where['posts.status'] = BaseStatusEnum::PUBLISHED;
 

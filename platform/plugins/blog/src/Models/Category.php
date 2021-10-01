@@ -113,17 +113,17 @@ class Category extends BaseModel
     public static function getCategoryNameCurrentLang($id)
     {
         if ($id) {
-            $lang = (app()->getLocale() == 'en') ? 'en_US' : 'ar';
-            $data = LanguageMeta::select('reference_id')
-                ->whereRaw('lang_meta_code ="' . $lang . '" and lang_meta_origin in (select lang_meta_origin FROM language_meta
-                 where reference_id = ' . $id . ' and reference_type like "%Category%")'
-                )
-                ->limit(1);
+//            $lang = (app()->getLocale() == 'en') ? 'en_US' : 'ar';
+//            $data = LanguageMeta::select('reference_id')
+//                ->whereRaw('lang_meta_code ="' . $lang . '" and lang_meta_origin in (select lang_meta_origin FROM language_meta
+//                 where reference_id = ' . $id . ' and reference_type like "%Category%")'
+//                )
+//                ->limit(1);
+//
+//            $data = $data->get();
 
-            $data = $data->get();
-
-            if (count($data) > 0)
-                return Category::find($data[0]->reference_id)->name;// $data[0]->reference_id;
+           //if (count($data) > 0)
+                return Category::find($id)->name;// $data[0]->reference_id;//$data[0]->reference_id
         }
         return '';
     }

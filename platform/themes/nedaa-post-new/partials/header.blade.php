@@ -21,13 +21,13 @@
 
     <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/jquery.bxslider.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/magnific-popup.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.carousel.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.theme.css" media="screen">
+    {{--<link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/magnific-popup.css" media="screen">--}}
+    {{--<link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.carousel.css" media="screen">--}}
+    {{--<link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/owl.theme.css" media="screen">--}}
 
     <meta name="wot-verification" content="fe3132ad710d8e69ea21"/>
 
-    <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/ekko-lightbox.css" media="screen">
+    {{--<link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/ekko-lightbox.css" media="screen">--}}
     <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/ticker-style.css"/>
     <link rel="stylesheet" type="text/css" href="/themes/nedaa-post-new/css/style2.css" media="screen">
     <link rel="stylesheet" type="text/css"
