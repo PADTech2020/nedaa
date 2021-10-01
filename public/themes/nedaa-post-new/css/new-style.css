@@ -200,6 +200,7 @@ ul.list-posts > li .post-content h2 {
 
 a {
     text-decoration: none;
+    color: #ffffff;
 }
 
 .news-headlines {
@@ -642,7 +643,7 @@ figure.snip1253.hover img {
 }
 
 .new-dark-style .title-section h1 {
-    color: #000000;
+    color: #fff;
 }
 
 .post-small-youtube .content span {
@@ -1062,6 +1063,19 @@ footer .header_links {
     margin-bottom: 0px;
 }
 
+.single-post-box .thumb-box h2{
+    padding-top: 0px; 
+}
+
+.single-post-box .thumb-box h2 a{
+    color: #063e7b;
+    font-weight: bold;
+}
+
+.image-slider .bx-controls-direction {
+    display:none;
+}
+
 .sidebar .author-box-posts .news-post .post-gallery {
     margin-bottom: 0px;
 }
@@ -1242,6 +1256,10 @@ padding-left: 5px;
 }
 
 @media (max-width: 768px) {
+    .single-post-box iframe, div.embed-responsive {
+        position: relative!important;
+        height: 250px !important;
+    }
     .news-headlines {
         width: 100%;
         background: #232323;
