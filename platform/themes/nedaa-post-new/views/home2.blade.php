@@ -2,44 +2,44 @@
 
 
 <?php
-$sy = \Botble\Blog\Models\Post::getPostsByCategory(68, 6);
+$sy = get_posts_by_category(68, 6);
 
-$international = \Botble\Blog\Models\Post::getPostsByCategory(70, 4);
-$middle_east = \Botble\Blog\Models\Post::getPostsByCategory(69, 4);
-$files = \Botble\Blog\Models\Post::getPostsByCategory(90, 4);
-$ra2i = \Botble\Blog\Models\Post::getPostsByCategory(73, 12);
+$international = get_posts_by_category(70, 4);
+$middle_east = get_posts_by_category(69, 4);
+$files = get_posts_by_category(90, 4);
+$ra2i = get_posts_by_category(73, 12);
 
-$politic_converseation = \Botble\Blog\Models\Post::getPostsByCategory(151, 4);
-
-
-$discover = \Botble\Blog\Models\Post::getPostsByCategory(83, 4);// not used
-$social = \Botble\Blog\Models\Post::getPostsByCategory(84, 4);// not used
-$citizen_diary = \Botble\Blog\Models\Post::getPostsByCategory(155, 4);// not used
-$turath = \Botble\Blog\Models\Post::getPostsByCategory(153, 5);// not used
+$politic_converseation = get_posts_by_category(151, 4);
 
 
-$sport = \Botble\Blog\Models\Post::getPostsByCategory(75, 6);
-$vid = \Botble\Blog\Models\Post::getPostsByCategory(89, 6);
+$discover = get_posts_by_category(83, 4);// not used
+$social = get_posts_by_category(84, 4);// not used
+$citizen_diary = get_posts_by_category(155, 4);// not used
+$turath = get_posts_by_category(153, 5);// not used
 
-// $books = \Botble\Blog\Models\Post::getPostsByCategory(149, 2);
-// $texts = \Botble\Blog\Models\Post::getPostsByCategory(148, 2);
-// $lifestyle = \Botble\Blog\Models\Post::getPostsByCategory(76, 4);
 
-// $economy = \Botble\Blog\Models\Post::getPostsByCategory(71, 4);
+$sport = get_posts_by_category(75, 6);
+$vid = get_posts_by_category(89, 6);
+
+// $books = get_posts_by_category(149, 2);
+// $texts = get_posts_by_category(148, 2);
+// $lifestyle = get_posts_by_category(76, 4);
+
+// $economy = get_posts_by_category(71, 4);
 // $economy = $economy->reverse();
 
-// $helth = \Botble\Blog\Models\Post::getPostsByCategory(82, 4);
-// $scienceandtechnology = \Botble\Blog\Models\Post::getPostsByCategory(74, 4);
-// $mjtama3 = \Botble\Blog\Models\Post::getPostsByCategory(87, 2);
-// $cinema = \Botble\Blog\Models\Post::getPostsByCategory(86, 4);
-// $mnoa3 = \Botble\Blog\Models\Post::getPostsByCategory(77, 2);
+// $helth = get_posts_by_category(82, 4);
+// $scienceandtechnology = get_posts_by_category(74, 4);
+// $mjtama3 = get_posts_by_category(87, 2);
+// $cinema = get_posts_by_category(86, 4);
+// $mnoa3 = get_posts_by_category(77, 2);
 
 
-$art = \Botble\Blog\Models\Post::getPostsByCategory(85, 5);
-$investigations = \Botble\Blog\Models\Post::getPostsByCategory(152, 4);
-$translate = \Botble\Blog\Models\Post::getPostsByCategory(72, 4);
+$art = get_posts_by_category(85, 5);
+$investigations = get_posts_by_category(152, 4);
+$translate = get_posts_by_category(72, 4);
 
-$infographic = \Botble\Blog\Models\Post::getPostsByCategory(154, 2);
+$infographic = get_posts_by_category(154, 2);
 
 
 $meta = new \Botble\SeoHelper\SeoOpenGraph;
@@ -829,7 +829,7 @@ $meta->addProperty('site-name', 'نداء بوست');
     </div>
 </section>
 
-<!-- انفوغرافيك -->
+{{--<!-- انفوغرافيك -->
 <section class="block-wrapper new-dark-style">
     <div class="container">
         <!-- block content -->
@@ -877,4 +877,4 @@ $meta->addProperty('site-name', 'نداء بوست');
         </div>
     </div>
     </div>
-</section>
+</section>--}}

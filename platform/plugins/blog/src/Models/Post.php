@@ -264,9 +264,8 @@ class Post extends BaseModel
 //            ])
             ->
             whereRaw('id IN (select MAX(id) FROM posts
-             inner join `language_meta` on `language_meta`.`reference_id` = `posts`.`id`
-             where is_slider = 1 and language_meta.reference_type like "%Post%"' .
-                ' and language_meta.lang_meta_code="' . $lang . '" and posts.status="' . BaseStatusEnum::PUBLISHED . '"
+            
+             where is_slider = 1 
         GROUP BY posts.slider_order)'
             )
             ->with(array_merge(['slugable'], $with))
